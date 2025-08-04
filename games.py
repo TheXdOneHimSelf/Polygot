@@ -3,32 +3,31 @@ import requests
 import time
 import argparse
 
-def fetch_games(bot_name, variant):
-    """Fetch rated games for one bot and one variant (std or 960)."""
+def fetch_games(bot_name):
+    """Fetch rated standard chess games for one bot."""
     url = f"https://lichess.org/api/games/user/{bot_name}"
-    headers = {"Accept": "application/x-chess-pgn"}
+    headers = {
+        "Accept": "application/x-chess-pgn",
+        "User-Agent": "PGNFetcher/1.0 (https://github.com/yourusername)"
+    }
     params = {
-        "max": 2000,
+        "max": 3000,
         "rated": True,
         "analysed": False,
         "opening": False,
         "clocks": False,
-        "evals": False
+        "evals": False,
+        "perfType": "classical,rapid,blitz,bullet"
     }
 
-    if variant == "960":
-        params["variant"] = "chess960"
-        params["perfType"] = "chess960"
-    elif variant == "std":
-        params["perfType"] = "classical,rapid,blitz,bullet"
-
-    print(f"📥 Fetching {variant.upper()} games for {bot_name}...")
-    response = requests.get(url, headers=headers, params=params)
-    if response.status_code != 200:
-        print(f"  ❌ Failed for {bot_name} ({variant}) - {response.status_code}")
-        return ""
-
-    return response.text
+    print(f"📥 Fetching STANDARD games for {bot_name}...")
+    for attempt in range(3):  # retry up to 3 times
+        response = requests.get(url, headers=headers, params=params)
+        if response.status_code == 200:
+            return response.text
+        print(f"⚠️ Attempt {attempt+1} failed ({response.status_code}), retrying...")
+        time.sleep(3)
+    return ""
 
 def extract_rating(line):
     """Extract Elo rating from PGN line."""
@@ -64,25 +63,19 @@ def filter_games(pgn_data, min_elo):
     return "\n\n\n".join(valid_games)
 
 def main():
-    parser = argparse.ArgumentParser(description="Fetch bot games (wins + draws) with min rating filter")
+    parser = argparse.ArgumentParser(description="Fetch standard bot games (wins + draws) with min rating filter")
     parser.add_argument("--bot", required=True, help="Lichess bot username")
-    parser.add_argument("--out", default="bot_games.pgn", help="Output PGN file")
+    parser.add_argument("--out", default="bot_games_std.pgn", help="Output PGN file")
     parser.add_argument("--min-elo", type=int, default=3000, help="Minimum Elo rating filter")
     args = parser.parse_args()
 
-    all_games = []
+    data = fetch_games(args.bot)
+    filtered = filter_games(data, args.min_elo)
 
-    for variant in ["std", "960"]:
-        data = fetch_games(args.bot, variant)
-        time.sleep(2)
-        filtered = filter_games(data, args.min_elo)
-        if filtered:
-            all_games.append(filtered)
-
-    if all_games:
+    if filtered:
         with open(args.out, "w", encoding="utf-8") as f:
-            f.write("\n\n\n".join(all_games))
-        print(f"✅ Saved all games Elo ≥ {args.min_elo} for {args.bot} → {args.out}")
+            f.write(filtered)
+        print(f"✅ Saved all STANDARD games Elo ≥ {args.min_elo} for {args.bot} → {args.out}")
     else:
         print("⚠️ No games found matching criteria.")
 
