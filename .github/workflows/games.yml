@@ -1,42 +1,42 @@
-name: Fetch Bot Games
+name: Build Opening Book
 
 on:
   workflow_dispatch:
     inputs:
-      bot_name:
-        description: "Enter the Lichess bot username"
+      pgn_file:
+        description: "Name of your PGN file"
         required: true
-      min_elo:
-        description: "Minimum Elo rating filter"
-        required: false
-        default: "3000"
+        default: "games.pgn"
+      output_name:
+        description: "Output BIN file name"
+        required: true
+        default: "book.bin"
 
 jobs:
-  download-bot-games:
+  build-book:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: |
-          pip install python-chess requests
+          pip install python-chess
 
-      - name: Fetch bot games
+      - name: 🏗️ Build Polyglot Book
         run: |
           python3 -u games.py \
-          --bot "${{ github.event.inputs.bot_name }}" \
-          --out "bot.pgn" \
-          --min-elo "${{ github.event.inputs.min_elo }}"
+            --pgn "${{ github.event.inputs.pgn_file }}" \
+            --bin "${{ github.event.inputs.output_name }}"
 
-      - name: Upload PGN Artifact
-        uses: actions/upload-artifact@v4
+      - name: 📤 Upload BIN File
+        uses: actions/upload-artifact@v3
         with:
-          name: bot_games
-          path: bot.pgn
+          name: OpeningBook
+          path: "${{ github.event.inputs.output_name }}"
+
