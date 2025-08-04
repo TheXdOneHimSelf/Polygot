@@ -16,10 +16,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Calculate “since” timestamp (1 Mar 2025 00:00 UTC)
+      - name: Calculate “since” timestamp 
         id: time
         run: |
-          SINCE=$(date -d "2025-03-01 00:00:00 UTC" +%s)000
+          SINCE=$(date -d "2024-03-01 00:00:00 UTC" +%s)000
           echo "since=$SINCE" >> "$GITHUB_OUTPUT"
 
       - name: Download PGN
