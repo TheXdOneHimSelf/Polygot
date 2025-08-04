@@ -42,7 +42,7 @@ jobs:
 
       - name: ⚡ Run PGN to Polyglot Builder
         run: |
-          python3 pgn2polyglot.py \
+          python3  polygot.py \
             --pgn "${{ github.event.inputs.pgn_file || 'mygames.pgn' }}" \
             --bin "${{ github.event.inputs.output_book || 'mybook.bin' }}" \
             --min-elo "${{ github.event.inputs.min_elo || '2000' }}" \
