@@ -39,4 +39,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: bot_games
-          path: bot_games.pgn
+          path: bot.pgn
