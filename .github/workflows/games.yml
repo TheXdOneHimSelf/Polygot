@@ -1,42 +1,53 @@
-name: Build Opening Book
+name: Download
 
 on:
   workflow_dispatch:
     inputs:
-      pgn_file:
-        description: "Name of your PGN file"
+      bot_name:
+        description: "Enter the Lichess bot username"
         required: true
-        default: "games.pgn"
-      output_name:
-        description: "Output BIN file name"
-        required: true
-        default: "book.bin"
+        default: "indianguyplayz"
 
 jobs:
-  build-book:
+  download-wins:
     runs-on: ubuntu-latest
+
     steps:
-      - name: 📥 Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      - name: 📦 Install dependencies
+      - name: Calculate “since” timestamp (1 Mar 2025 00:00 UTC)
+        id: time
         run: |
-          pip install python-chess
+          SINCE=$(date -d "2025-03-01 00:00:00 UTC" +%s)000
+          echo "since=$SINCE" >> "$GITHUB_OUTPUT"
 
-      - name: 🏗️ Build Polyglot Book
+      - name: Download PGN
         run: |
-          python3 -u games.py \
-            --pgn "${{ github.event.inputs.pgn_file }}" \
-            --bin "${{ github.event.inputs.output_name }}"
+          FILE="${{ github.event.inputs.bot_name }}.pgn"
+          curl -L "https://lichess.org/api/games/user/${{ github.event.inputs.bot_name }}" \
+            -G \
+            --data-urlencode "since=${{ steps.time.outputs.since }}" \
+            -H "Accept: application/x-chess-pgn" \
+            -o "$FILE"
 
-      - name: 📤 Upload BIN File
-        uses: actions/upload-artifact@v3
-        with:
-          name: OpeningBook
-          path: "${{ github.event.inputs.output_name }}"
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push PGN file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FILE="${{ github.event.inputs.bot_name }}.pgn"
+
+          # If file doesn't exist yet, add it
+          if [ ! -f "$FILE" ]; then
+            echo "Created new PGN file for ${{ github.event.inputs.bot_name }}" > "$FILE"
+          fi
+
+          git add "$FILE"
+          git commit -m "Update PGN file for ${{ github.event.inputs.bot_name }}" || echo "No changes to commit"
+          git push
 
