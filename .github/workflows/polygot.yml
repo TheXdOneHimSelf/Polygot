@@ -1,0 +1,55 @@
+name: Build Polyglot Book
+
+on:
+  workflow_dispatch:
+    inputs:
+      pgn_file:
+        description: "Enter the PGN file name (in repository root)"
+        required: true
+        default: "mygames.pgn"
+      output_book:
+        description: "Enter the output book name (.bin)"
+        required: true
+        default: "mybook.bin"
+      min_elo:
+        description: "Minimum Elo filter"
+        required: true
+        default: "2000"
+      max_plies:
+        description: "Maximum plies filter"
+        required: true
+        default: "60"
+  push:
+    paths:
+      - "*.pgn"
+
+jobs:
+  build-polyglot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: 📦 Install dependencies
+        run: |
+          pip install python-chess
+
+      - name: ⚡ Run PGN to Polyglot Builder
+        run: |
+          python3 pgn2polyglot.py \
+            --pgn "${{ github.event.inputs.pgn_file || 'mygames.pgn' }}" \
+            --bin "${{ github.event.inputs.output_book || 'mybook.bin' }}" \
+            --min-elo "${{ github.event.inputs.min_elo || '2000' }}" \
+            --max-plies "${{ github.event.inputs.max_plies || '60' }}"
+
+      - name: 📤 Upload built book
+        uses: actions/upload-artifact@v3
+        with:
+          name: PolyglotBook
+          path: ${{ github.event.inputs.output_book || 'mybook.bin' }}
