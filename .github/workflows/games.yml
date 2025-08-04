@@ -30,7 +30,7 @@ jobs:
 
       - name: Fetch bot games
         run: |
-          python3 games.py \
+          python3 -u games.py \
           --bot "${{ github.event.inputs.bot_name }}" \
           --out "bot.pgn" \
           --min-elo "${{ github.event.inputs.min_elo }}"
