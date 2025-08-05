@@ -1,32 +1,28 @@
-name: Build Polyglot Book
+name: Build Polyglot Opening Book
 
 on:
   workflow_dispatch:
     inputs:
       pgn_file:
-        description: "Enter the PGN file name (in repository root)"
+        description: "PGN file in repository root"
         required: true
-        default: "mygames.pgn"
-      output_book:
-        description: "Enter the output book name (.bin)"
+        default: "games.pgn"
+      output_name:
+        description: "Output BIN file name"
         required: true
-        default: "mybook.bin"
+        default: "bot.bin"
       min_elo:
-        description: "Minimum Elo filter"
-        required: true
-        default: "2000"
+        description: "Minimum Elo to include"
+        required: false
+        default: "0"
       max_plies:
-        description: "Maximum plies filter"
-        required: true
-        default: "60"
-  push:
-    paths:
-      - "*.pgn"
+        description: "Max plies (half-moves)"
+        required: false
+        default: "80"
 
 jobs:
-  build-polyglot:
+  build-book:
     runs-on: ubuntu-latest
-
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -40,16 +36,16 @@ jobs:
         run: |
           pip install python-chess
 
-      - name: ⚡ Run PGN to Polyglot Builder
+      - name: 🏗️ Build Polyglot Book
         run: |
-          python3  polygot.py \
-            --pgn "${{ github.event.inputs.pgn_file || 'mygames.pgn' }}" \
-            --bin "${{ github.event.inputs.output_book || 'mybook.bin' }}" \
-            --min-elo "${{ github.event.inputs.min_elo || '2000' }}" \
-            --max-plies "${{ github.event.inputs.max_plies || '60' }}"
+          python3 polygot.py \
+            --pgn "${{ github.event.inputs.pgn_file }}" \
+            --bin "${{ github.event.inputs.output_name }}" \
+            --min-elo ${{ github.event.inputs.min_elo }} \
+            --max-plies ${{ github.event.inputs.max_plies }}
 
-      - name: 📤 Upload built book
-        uses: actions/upload-artifact@v4
+      - name: 📤 Upload BIN File
+        uses: actions/upload-artifact@v3
         with:
-          name: PolyglotBook
-          path: ${{ github.event.inputs.output_book || 'mybook.bin' }}
+          name: OpeningBook
+          path: "${{ github.event.inputs.output_name }}"
