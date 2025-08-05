@@ -45,7 +45,8 @@ jobs:
             --max-plies ${{ github.event.inputs.max_plies }}
 
       - name: 📤 Upload BIN File
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: OpeningBook
-          path: "${{ github.event.inputs.output_name }}"
+          path: ${{ github.event.inputs.output_name }}
+
