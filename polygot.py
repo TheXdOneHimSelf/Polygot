@@ -8,19 +8,31 @@ import sys
 # Increase recursion limit to handle large PGN files
 sys.setrecursionlimit(10000)
 
+# -------------------------
+# Helper functions
+# -------------------------
+
 def get_zobrist_key_hex(board):
     return f"{chess.polyglot.zobrist_hash(board):016x}"
 
+def parse_elo(elo):
+    """Convert Elo to int safely, return 0 if invalid."""
+    try:
+        return int(elo)
+    except:
+        return 0
+
 def process_chunk(pgn_chunk, min_elo, max_plies):
+    """Process a batch of games and collect book data."""
     book_data = {}
     for game in pgn_chunk:
         # Skip non-standard games
         if game.headers.get("Variant", "Standard") != "Standard":
             continue
 
-        # Filter games below Elo threshold
-        white_elo = int(game.headers.get("WhiteElo", 0))
-        black_elo = int(game.headers.get("BlackElo", 0))
+        # Elo filter
+        white_elo = parse_elo(game.headers.get("WhiteElo", 0))
+        black_elo = parse_elo(game.headers.get("BlackElo", 0))
         if white_elo < min_elo or black_elo < min_elo:
             continue
 
@@ -103,7 +115,7 @@ def read_games_in_chunks(pgn_path, chunk_size=2000):
             yield chunk
 
 def build_book_file(pgn_path, bin_path, min_elo, max_plies):
-    print(f"🚀 Building book (max plies = {max_plies})...")
+    print(f"🚀 Building book from {pgn_path} (min Elo={min_elo}, max plies={max_plies})...")
     results = []
     for chunk in read_games_in_chunks(pgn_path):
         results.append(process_chunk(chunk, min_elo, max_plies))
@@ -111,11 +123,14 @@ def build_book_file(pgn_path, bin_path, min_elo, max_plies):
     normalize_weights(merged_book)
     save_as_polyglot(merged_book, bin_path)
 
+# -------------------------
+# Main
+# -------------------------
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="PGN → BIN Polyglot Book Builder (Safe Mode)")
     parser.add_argument("--pgn", required=True, help="Input PGN file")
     parser.add_argument("--bin", required=True, help="Output BIN file")
     parser.add_argument("--min-elo", type=int, default=0, help="Minimum player Elo to include")
-    parser.add_argument("--max-plies", type=int, default=60, help="Max number of plies to include")
+    parser.add_argument("--max-plies", type=int, default=60, help="Max number of plies (half-moves) to include")
     args = parser.parse_args()
     build_book_file(args.pgn, args.bin, args.min_elo, args.max_plies)
