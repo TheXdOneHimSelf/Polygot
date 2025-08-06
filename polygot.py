@@ -4,7 +4,7 @@ import chess.polyglot
 import datetime
 
 # Maximum number of moves from each game to include in the book
-MAX_BOOK_PLIES = 200
+MAX_BOOK_PLIES = 300
 # Internal weight normalization target
 MAX_BOOK_WEIGHT = 1000000
 # Maximum weight allowed in Polyglot entry (16-bit)
