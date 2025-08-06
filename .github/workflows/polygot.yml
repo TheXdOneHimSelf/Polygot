@@ -27,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: OpeningBook
-          path: ${{ github.event.inputs.output_name }}
+          path: bot.bin
 
