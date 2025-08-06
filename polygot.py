@@ -78,7 +78,7 @@ class Book:
             for entry in entries:
                 outfile.write(entry)
 
-            print(f"Saved {len(entries)} moves to book: {path}")
+            print(f"✅ Saved {len(entries)} moves to book: {path}")
 
     def merge_file(self, path):
         with chess.polyglot.open_reader(path) as reader:
@@ -113,14 +113,6 @@ class LichessGame:
         res = self.result()
         return {"1-0": 2, "1/2-1/2": 1}.get(res, 0)
 
-def correct_castling_uci(uci, board):
-    if board.piece_at(chess.parse_square(uci[:2])).piece_type == chess.KING:
-        if uci == "e1g1": return "e1h1"
-        if uci == "e1c1": return "e1a1"
-        if uci == "e8g8": return "e8h8"
-        if uci == "e8c8": return "e8a8"
-    return uci
-
 def build_book_file(pgn_path, book_path):
     book = Book()
     with open(pgn_path) as pgn_file:
@@ -137,11 +129,11 @@ def build_book_file(pgn_path, book_path):
                 if ply >= MAX_BOOK_PLIES:
                     break
 
-                uci = correct_castling_uci(move.uci(), board)
+                uci = move.uci()  # ✅ No more castling correction needed
                 zobrist_key_hex = get_zobrist_key_hex(board)
                 position = book.get_position(zobrist_key_hex)
                 bm = position.get_move(uci)
-                bm.move = chess.Move.from_uci(uci)
+                bm.move = move
                 bm.weight += score if board.turn == chess.WHITE else (2 - score)
 
                 board.push(move)
