@@ -21,7 +21,7 @@ jobs:
 
       - name: 🏗️ Build Polyglot Book
         run: |
-          python3 polygot.py
+          python -u polygot.py
 
       - name: 📤 Upload BIN File
         uses: actions/upload-artifact@v4
