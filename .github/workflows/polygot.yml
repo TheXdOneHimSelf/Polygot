@@ -2,23 +2,6 @@ name: Build Polyglot Opening Book
 
 on:
   workflow_dispatch:
-    inputs:
-      pgn_file:
-        description: "PGN file in repository root"
-        required: true
-        default: "games.pgn"
-      output_name:
-        description: "Output BIN file name"
-        required: true
-        default: "bot.bin"
-      min_elo:
-        description: "Minimum Elo to include"
-        required: false
-        default: "0"
-      max_plies:
-        description: "Max plies (half-moves)"
-        required: false
-        default: "80"
 
 jobs:
   build-book:
@@ -38,11 +21,7 @@ jobs:
 
       - name: 🏗️ Build Polyglot Book
         run: |
-          python3 polygot.py \
-            --pgn "${{ github.event.inputs.pgn_file }}" \
-            --bin "${{ github.event.inputs.output_name }}" \
-            --min-elo ${{ github.event.inputs.min_elo }} \
-            --max-plies ${{ github.event.inputs.max_plies }}
+          python3 polygot.py
 
       - name: 📤 Upload BIN File
         uses: actions/upload-artifact@v4
