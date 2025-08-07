@@ -208,5 +208,5 @@ def build_book_file(pgn_path, book_path):
 # ENTRY POINT
 # ===========================
 if __name__ == "__main__":
-    build_book_file("NimsiluBot.pgn", "bot.bin")
+    build_book_file("PgnFile.pgn", "bot.bin")
 
