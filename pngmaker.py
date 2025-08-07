@@ -24,7 +24,6 @@ def fetch_full_games(bot):
     params = {
         "max": 3000,
         "variant": "standard",  # <-- changed here
-        "perfType": "chess960",
         "vs": ",".join(BOTS),
         "pgnInJson": False,
         "rated": "true",
