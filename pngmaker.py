@@ -14,7 +14,13 @@ BOTS = [
 OUTPUT_PGN = "PgnFile.pgn"
 
 def is_valid_line(line):
-    return line.startswith("[Event") or line.startswith("[Site") or line.startswith("[Date") or line.startswith("[Round") or line.startswith("[White") or line.startswith("[Black") or line.startswith("[Result") or line.startswith("[FEN") or line.startswith("[SetUp") or line.startswith("1.") or line == ""
+    return (
+        line.startswith("[Event") or line.startswith("[Site") or
+        line.startswith("[Date") or line.startswith("[Round") or
+        line.startswith("[White") or line.startswith("[Black") or
+        line.startswith("[Result") or line.startswith("[FEN") or
+        line.startswith("[SetUp") or line.startswith("1.") or line == ""
+    )
 
 def fetch_full_games(bot):
     url = f"https://lichess.org/api/games/user/{bot}"
@@ -23,14 +29,15 @@ def fetch_full_games(bot):
     }
     params = {
         "max": 3000,
-        "variant": "standard",  # <-- changed here
+        "variant": "standard",        # ✅ Standard games only
+        "rated": "true",
         "vs": ",".join(BOTS),
         "pgnInJson": False,
-        "rated": "true",
         "analysed": "false",
         "opening": "false",
         "clocks": "false",
         "evals": "false"
+        # ✅ perfType removed
     }
 
     print(f"Fetching games for {bot}...")
@@ -48,8 +55,7 @@ def filter_games(pgn_data):
     for game in games:
         lines = game.split("\n")
         tags = {line.split(" ")[0][1:]: line for line in lines if line.startswith("[")}
-        if "[Variant \"Chess960\"]" not in tags.get("Variant", ""):
-            continue
+        
         white = tags.get("White", "")
         black = tags.get("Black", "")
         w_rating_line = tags.get("WhiteElo", "")
@@ -66,7 +72,7 @@ def filter_games(pgn_data):
         wr = extract_rating(w_rating_line)
         br = extract_rating(b_rating_line)
 
-        if (w_prov or wr >= 2400) and (b_prov or br >= 2400):
+        if (w_prov or wr >= 3000) and (b_prov or br >= 3000):
             valid_games.append(game.strip())
 
     return valid_games
