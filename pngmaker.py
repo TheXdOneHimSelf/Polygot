@@ -13,15 +13,6 @@ BOTS = [
 
 OUTPUT_PGN = "PgnFile.pgn"
 
-def is_valid_line(line):
-    return (
-        line.startswith("[Event") or line.startswith("[Site") or
-        line.startswith("[Date") or line.startswith("[Round") or
-        line.startswith("[White") or line.startswith("[Black") or
-        line.startswith("[Result") or line.startswith("[FEN") or
-        line.startswith("[SetUp") or line.startswith("1.") or line == ""
-    )
-
 def fetch_full_games(bot):
     url = f"https://lichess.org/api/games/user/{bot}"
     headers = {
@@ -29,7 +20,7 @@ def fetch_full_games(bot):
     }
     params = {
         "max": 3000,
-        "variant": "standard",        # ✅ Standard games only
+        "variant": "standard",
         "rated": "true",
         "vs": ",".join(BOTS),
         "pgnInJson": False,
@@ -37,16 +28,21 @@ def fetch_full_games(bot):
         "opening": "false",
         "clocks": "false",
         "evals": "false"
-        # ✅ perfType removed
     }
 
-    print(f"Fetching games for {bot}...")
+    print(f"\n🔍 Fetching games for {bot}...")
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
-        print(f"  Failed for {bot} - {response.status_code}")
+        print(f"  ❌ Failed for {bot} - {response.status_code}")
         return ""
 
     return response.text
+
+def extract_rating(line):
+    try:
+        return int(line.split('"')[1])
+    except:
+        return 0
 
 def filter_games(pgn_data):
     games = pgn_data.strip().split("\n\n\n")
@@ -55,25 +51,21 @@ def filter_games(pgn_data):
     for game in games:
         lines = game.split("\n")
         tags = {line.split(" ")[0][1:]: line for line in lines if line.startswith("[")}
-        
-        white = tags.get("White", "")
-        black = tags.get("Black", "")
-        w_rating_line = tags.get("WhiteElo", "")
-        b_rating_line = tags.get("BlackElo", "")
+
+        white = tags.get("White", "").split('"')[1] if "White" in tags else "Unknown"
+        black = tags.get("Black", "").split('"')[1] if "Black" in tags else "Unknown"
+        wr = extract_rating(tags.get("WhiteElo", ""))
+        br = extract_rating(tags.get("BlackElo", ""))
         w_prov = "WhiteRatingDiff" not in tags
         b_prov = "BlackRatingDiff" not in tags
 
-        def extract_rating(line):
-            try:
-                return int(line.split('"')[1])
-            except:
-                return 0
-
-        wr = extract_rating(w_rating_line)
-        br = extract_rating(b_rating_line)
+        print(f"🧪 Game: {white} ({wr}) vs {black} ({br})")
 
         if (w_prov or wr >= 3000) and (b_prov or br >= 3000):
+            print("   ✅ Accepted: Both ratings are >= 3000 or provisional")
             valid_games.append(game.strip())
+        else:
+            print("   ❌ Skipped: Rating too low")
 
     return valid_games
 
@@ -83,13 +75,13 @@ def main():
         pgn_data = fetch_full_games(bot)
         time.sleep(2)  # rate limit
         filtered = filter_games(pgn_data)
-        print(f"  → {len(filtered)} valid games for {bot}")
+        print(f"  ✅ {len(filtered)} high-rated games found for {bot}")
         all_games.extend(filtered)
 
-    print(f"\nTotal games collected: {len(all_games)}")
+    print(f"\n🎯 Total 3000+ games collected: {len(all_games)}")
     with open(OUTPUT_PGN, "w", encoding="utf-8") as f:
         f.write("\n\n\n".join(all_games))
-    print(f"PGN saved to {OUTPUT_PGN}")
+    print(f"📁 PGN saved to {OUTPUT_PGN}")
 
 if __name__ == "__main__":
     main()
