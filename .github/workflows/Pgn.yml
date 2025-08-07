@@ -21,46 +21,7 @@ jobs:
 
       - name: 🧠 Run PGN fetcher
         run: |
-          python name: Fetch PGNs from Lichess
-
-on:
-  workflow_dispatch:
-
-jobs:
-  fetch-pgns:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v3
-
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: 📦 Install dependencies
-        run: pip install requests
-
-      - name: 🧠 Run PGN fetcher
-        run: |
-          python -u pngmaker.py
-
-      - name: 📄 Create file if not exists
-        run: |
-          if [ ! -f PgnFile.pgn ]; then
-            echo "No PGNs found, creating empty file."
-            touch PgnFile.pgn
-          fi
-
-      - name: 🔄 Commit PGN to repository
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add PgnFile.pgn
-          git commit -m "🔄 Update PGN file" || echo "No changes to commit"
-          git push
-
+          python -u pngmaker.py  
 
       - name: 📄 Create file if not exists
         run: |
