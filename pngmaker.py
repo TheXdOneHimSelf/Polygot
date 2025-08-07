@@ -21,10 +21,8 @@ def fetch_full_games(bot):
     params = {
         "max": 3000,
         "variant": "standard",
-        "rated": "true",
         "vs": ",".join(BOTS),
         "pgnInJson": False,
-        "analysed": "false",
         "opening": "false",
         "clocks": "false",
         "evals": "false"
