@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate BIN files
         run: |
-          python polygot.py
+          python -u polygot.py
 
       - name: Upload BIN files as artifact
         uses: actions/upload-artifact@v4
