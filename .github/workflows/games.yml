@@ -1,58 +1,38 @@
-name: Lichess Bot Stats
+name: Fetch Lichess Bot Games
 
 on:
-  workflow_dispatch: # run manually from GitHub Actions tab
+  workflow_dispatch: # Run manually
 
 jobs:
-  stats:
+  fetch:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
-      - name: Run Bot Stats
+      - name: Download PGNs
         run: |
-          #!/bin/bash
           BOTS=("AttackKing_Bot" "ToromBot" "Endogenetic-Bot" "NNUE_Drift" "MaggiChess16" "NimsiluBot")
+          SINCE=0  # Change if you want games only after a certain timestamp
+          mkdir -p pgn
 
           for BOT in "${BOTS[@]}"; do
-              echo "Processing $BOT..."
-              JSON_FILE="${BOT}.json"
-              rm -f "$JSON_FILE"
-
-              UNTIL=""
-              while :; do
-                  RESPONSE=$(curl -s -L "https://lichess.org/api/games/user/${BOT}" \
-                      -G \
-                      --data-urlencode "max=5000" \
-                      ${UNTIL:+--data-urlencode "until=$UNTIL"} \
-                      -H "Accept: application/x-ndjson")
-
-                  if [ -z "$RESPONSE" ]; then
-                      break
-                  fi
-
-                  echo "$RESPONSE" >> "$JSON_FILE"
-
-                  UNTIL=$(echo "$RESPONSE" | jq -r '.[-1].createdAt // empty')
-                  if [ -z "$UNTIL" ]; then
-                      break
-                  fi
-              done
-
-              if [ ! -s "$JSON_FILE" ]; then
-                  echo "No games found for $BOT"
-                  continue
-              fi
-
-              WINS=$(jq -r --arg BOT "$BOT" 'select(.winner == "white" and .players.white.user.name == $BOT) or
-                                              (.winner == "black" and .players.black.user.name == $BOT) | .id' "$JSON_FILE" | wc -l)
-              DRAWS=$(jq -r --arg BOT "$BOT" 'select(.status == "draw" and
-                                              ((.players.white.user.name == $BOT) or (.players.black.user.name == $BOT))) | .id' "$JSON_FILE" | wc -l)
-
-              echo "$BOT: Wins=$WINS, Draws=$DRAWS, Total=$((WINS + DRAWS))"
+              echo "Fetching games for $BOT..."
+              curl -s -L "https://lichess.org/api/games/user/${BOT}" \
+                -G \
+                --data-urlencode "since=${SINCE}" \
+                --data-urlencode "max=5000" \
+                --data-urlencode "moves=true" \
+                --data-urlencode "pgnInJson=false" \
+                -H "Accept: application/x-chess-pgn" \
+                > "pgn/${BOT}.pgn"
           done
+
+      - name: Commit PGNs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add pgn/*.pgn
+          git commit -m "Update PGNs from Lichess bots" || echo "No changes to commit"
+          git push
