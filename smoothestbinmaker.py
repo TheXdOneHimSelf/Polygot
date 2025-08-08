@@ -151,5 +151,4 @@ def build_book_file(pgn_path, book_path):
     book.save_as_polyglot(book_path)
 
 if __name__ == "__main__":
-    build_book_file("SamplePGN.pgn", "lila.bin")
-   # build_book_file("SamplePGN1.pgn", "lilawhite.bin")
+    build_book_file("Classic_BOT-v2.pgn", "bot12.bin")
