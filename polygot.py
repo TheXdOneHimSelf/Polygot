@@ -3,7 +3,7 @@ import chess.pgn
 import chess.polyglot
 import datetime
 
-MAX_BOOK_PLIES = 80
+MAX_BOOK_PLIES = 100
 MAX_BOOK_WEIGHT = 10000
 
 def format_zobrist_key_hex(zobrist_key):
@@ -142,4 +142,4 @@ def build_book_file(pgn_path, book_path):
     book.save_as_polyglot(book_path)
 
 if __name__ == "__main__":
-    build_book_file("merge.pgn", "merged.bin")
+    build_book_file("Classic_BOT-v2.pgn", "bot.bin")
