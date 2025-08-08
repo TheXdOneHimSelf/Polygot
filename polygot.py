@@ -4,7 +4,7 @@ import chess.polyglot
 import datetime
 
 MAX_BOOK_PLIES = 100
-MAX_BOOK_WEIGHT = 10000
+MAX_BOOK_WEIGHT = 1000000
 
 def format_zobrist_key_hex(zobrist_key):
     return f"{zobrist_key:016x}"
