@@ -4,7 +4,7 @@ import chess.polyglot
 import datetime
 
 MAX_BOOK_PLIES = 100
-MAX_BOOK_WEIGHT = 1000000
+MAX_BOOK_WEIGHT = 65535  # Polyglot supports only unsigned 16-bit weights
 
 def format_zobrist_key_hex(zobrist_key):
     return f"{zobrist_key:016x}"
@@ -58,13 +58,18 @@ class Book:
                         mi += ((move.promotion - 1) << 12)
 
                     mbytes = mi.to_bytes(2, byteorder="big")
-                    wbytes = bm.weight.to_bytes(2, byteorder="big")
+
+                    # Clamp weight to 16-bit range for valid Polyglot
+                    weight = min(max(int(bm.weight), 0), 65535)
+                    wbytes = weight.to_bytes(2, byteorder="big")
+
                     lbytes = (0).to_bytes(4, byteorder="big")
 
                     entry = zbytes + mbytes + wbytes + lbytes
                     entries.append(entry)
 
-            entries.sort(key=lambda e: (e[:8], e[10:12]), reverse=False)
+            # Sort according to Polyglot spec
+            entries.sort(key=lambda e: (e[:8], e[10:12]))
 
             for entry in entries:
                 outfile.write(entry)
