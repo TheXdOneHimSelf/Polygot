@@ -6,7 +6,7 @@ on:
       bot_names:
         description: "Comma-separated Lichess bot usernames"
         required: true
-        default: ""
+        default: "AttackKing_Bot,ToromBot,Endogenetic-Bot,NNUE_Drift,MaggiChess16,NimsiluBot"
 
 jobs:
   download-wins-draws:
@@ -22,6 +22,7 @@ jobs:
       - name: Calculate “since” timestamp 
         id: time
         run: |
+          # Change date to earliest point you want to fetch from
           SINCE=$(date -d "2024-03-01 00:00:00 UTC" +%s)000
           echo "since=$SINCE" >> "$GITHUB_OUTPUT"
 
@@ -35,7 +36,7 @@ jobs:
             JSON_FILE="${BOT}.json"
             PGN_FILE="${BOT}.pgn"
 
-            # 1. Download games as JSON
+            # 1. Download games in NDJSON format
             curl -s -L "https://lichess.org/api/games/user/${BOT}" \
               -G \
               --data-urlencode "since=${{ steps.time.outputs.since }}" \
@@ -43,28 +44,31 @@ jobs:
               -H "Accept: application/x-ndjson" \
               > "$JSON_FILE"
 
-            # 2. Filter only wins & draws for this bot
-            # Winner null => draw, Winner white & botColor white => win, Winner black & botColor black => win
+            # 2. Filter wins and draws (case-insensitive match + null handling)
             FILTERED_IDS=$(jq -r --arg BOT "$BOT" '
-              select(.players.white.user.name==$BOT and (.winner=="white" or .winner==null)) |
+              select((.players.white.user.name | ascii_downcase) == ($BOT | ascii_downcase)
+                and (((.winner // null) == "white") or ((.winner // null) == null))) |
               .id,
-              select(.players.black.user.name==$BOT and (.winner=="black" or .winner==null)) |
+              select((.players.black.user.name | ascii_downcase) == ($BOT | ascii_downcase)
+                and (((.winner // null) == "black") or ((.winner // null) == null))) |
               .id
             ' "$JSON_FILE")
 
             if [ -z "$FILTERED_IDS" ]; then
               echo "No wins/draws for $BOT"
+              rm -f "$JSON_FILE"
               continue
             fi
 
-            # 3. Download filtered games in PGN
+            # 3. Get PGN for filtered games
             curl -s -L "https://lichess.org/api/games/export/_ids" \
               -H "Content-Type: application/x-www-form-urlencoded" \
               -H "Accept: application/x-chess-pgn" \
               --data-urlencode "ids=$(echo $FILTERED_IDS | tr '\n' ',')" \
-              >> "$PGN_FILE"
+              > "$PGN_FILE"
 
             rm -f "$JSON_FILE"
+            echo "Saved PGN for $BOT to $PGN_FILE"
           done
 
       - name: Configure Git
