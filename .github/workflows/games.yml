@@ -1,97 +1,58 @@
-name: Download Multiple Bots Wins & Draws (Fast + Safe)
+name: Lichess Bot Stats
 
 on:
-  workflow_dispatch:
-    inputs:
-      bot_names:
-        description: "Comma-separated Lichess bot usernames"
-        required: true
-        default: "AttackKing_Bot,ToromBot,Endogenetic-Bot,NNUE_Drift,MaggiChess16,NimsiluBot"
+  workflow_dispatch: # run manually from GitHub Actions tab
 
 jobs:
-  download-wins-draws-fast:
+  stats:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Install jq and parallel
-        run: sudo apt-get update && sudo apt-get install -y jq parallel
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Calculate “since” timestamp 
-        id: time
+      - name: Run Bot Stats
         run: |
-          # Change this to the earliest date to fetch from
-          SINCE=$(date -d "2024-03-01 00:00:00 UTC" +%s)000
-          echo "since=$SINCE" >> "$GITHUB_OUTPUT"
+          #!/bin/bash
+          BOTS=("AttackKing_Bot" "ToromBot" "Endogenetic-Bot" "NNUE_Drift" "MaggiChess16" "NimsiluBot")
 
-      - name: Download and filter games in parallel
-        run: |
-          download_bot_games() {
-            BOT="$1"
-            echo "Processing $BOT..."
-
-            JSON_FILE="${BOT}.json"
-            PGN_FILE="${BOT}.pgn"
-
-            # Download all games since date in NDJSON format
-            curl -s -L "https://lichess.org/api/games/user/${BOT}" \
-              -G \
-              --data-urlencode "since=${SINCE}" \
-              --data-urlencode "max=5000" \
-              -H "Accept: application/x-ndjson" \
-              > "$JSON_FILE"
-
-            # Skip if no games or bad response
-            if ! grep -q '"id"' "$JSON_FILE"; then
-              echo "No games found for $BOT since given date"
+          for BOT in "${BOTS[@]}"; do
+              echo "Processing $BOT..."
+              JSON_FILE="${BOT}.json"
               rm -f "$JSON_FILE"
-              return
-            fi
 
-            # Filter wins and draws (case-insensitive match + null handling)
-            FILTERED_IDS=$(jq -r --arg BOT "$BOT" '
-              select((.players.white.user.name | ascii_downcase) == ($BOT | ascii_downcase)
-                and (((.winner // null) == "white") or ((.winner // null) == null))) |
-              .id,
-              select((.players.black.user.name | ascii_downcase) == ($BOT | ascii_downcase)
-                and (((.winner // null) == "black") or ((.winner // null) == null))) |
-              .id
-            ' "$JSON_FILE")
+              UNTIL=""
+              while :; do
+                  RESPONSE=$(curl -s -L "https://lichess.org/api/games/user/${BOT}" \
+                      -G \
+                      --data-urlencode "max=5000" \
+                      ${UNTIL:+--data-urlencode "until=$UNTIL"} \
+                      -H "Accept: application/x-ndjson")
 
-            if [ -z "$FILTERED_IDS" ]; then
-              echo "No wins/draws for $BOT"
-              rm -f "$JSON_FILE"
-              return
-            fi
+                  if [ -z "$RESPONSE" ]; then
+                      break
+                  fi
 
-            # Fetch PGN for filtered games
-            curl -s -L "https://lichess.org/api/games/export/_ids" \
-              -H "Content-Type: application/x-www-form-urlencoded" \
-              -H "Accept: application/x-chess-pgn" \
-              --data-urlencode "ids=$(echo $FILTERED_IDS | tr '\n' ',')" \
-              > "$PGN_FILE"
+                  echo "$RESPONSE" >> "$JSON_FILE"
 
-            rm -f "$JSON_FILE"
-            echo "Saved PGN for $BOT"
-          }
+                  UNTIL=$(echo "$RESPONSE" | jq -r '.[-1].createdAt // empty')
+                  if [ -z "$UNTIL" ]; then
+                      break
+                  fi
+              done
 
-          export -f download_bot_games
-          export SINCE=${{ steps.time.outputs.since }}
+              if [ ! -s "$JSON_FILE" ]; then
+                  echo "No games found for $BOT"
+                  continue
+              fi
 
-          # Run 3 bots at the same time for speed
-          echo "${{ github.event.inputs.bot_names }}" | tr ',' '\n' | parallel -j 3 download_bot_games {}
+              WINS=$(jq -r --arg BOT "$BOT" 'select(.winner == "white" and .players.white.user.name == $BOT) or
+                                              (.winner == "black" and .players.black.user.name == $BOT) | .id' "$JSON_FILE" | wc -l)
+              DRAWS=$(jq -r --arg BOT "$BOT" 'select(.status == "draw" and
+                                              ((.players.white.user.name == $BOT) or (.players.black.user.name == $BOT))) | .id' "$JSON_FILE" | wc -l)
 
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push PGN files
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git add *.pgn
-          git commit -m "Update PGN files for bots" || echo "No changes to commit"
-          git push
+              echo "$BOT: Wins=$WINS, Draws=$DRAWS, Total=$((WINS + DRAWS))"
+          done
