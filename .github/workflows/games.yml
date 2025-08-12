@@ -1,38 +1,52 @@
-name: Fetch Lichess Bot Games
+name: Download
 
 on:
-  workflow_dispatch: # Run manually
+  workflow_dispatch:
+    inputs:
+      bot_name:
+        description: "Enter the Lichess bot username"
+        required: true
+        default: "indianguyplayz"
 
 jobs:
-  fetch:
+  download-wins:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-      - name: Download PGNs
+      - name: Calculate “since” timestamp 
+        id: time
         run: |
-          BOTS=("AttackKing_Bot" "ToromBot" "Endogenetic-Bot" "NNUE_Drift" "MaggiChess16" "NimsiluBot")
-          SINCE=0  # Change if you want games only after a certain timestamp
-          mkdir -p pgn
+          SINCE=$(date -d "2024-03-01 00:00:00 UTC" +%s)000
+          echo "since=$SINCE" >> "$GITHUB_OUTPUT"
 
-          for BOT in "${BOTS[@]}"; do
-              echo "Fetching games for $BOT..."
-              curl -s -L "https://lichess.org/api/games/user/${BOT}" \
-                -G \
-                --data-urlencode "since=${SINCE}" \
-                --data-urlencode "max=5000" \
-                --data-urlencode "moves=true" \
-                --data-urlencode "pgnInJson=false" \
-                -H "Accept: application/x-chess-pgn" \
-                > "pgn/${BOT}.pgn"
-          done
-
-      - name: Commit PGNs
+      - name: Download PGN
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add pgn/*.pgn
-          git commit -m "Update PGNs from Lichess bots" || echo "No changes to commit"
+          FILE="${{ github.event.inputs.bot_name }}.pgn"
+          curl -L "https://lichess.org/api/games/user/${{ github.event.inputs.bot_name }}" \
+            -G \
+            --data-urlencode "since=${{ steps.time.outputs.since }}" \
+            -H "Accept: application/x-chess-pgn" \
+            -o "$FILE"
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push PGN file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FILE="${{ github.event.inputs.bot_name }}.pgn"
+
+          # If file doesn't exist yet, add it
+          if [ ! -f ".pgn/$FILE" ]; then
+            echo "Created new PGN file for ${{ github.event.inputs.bot_name }}" > "$FILE"
+          fi
+
+          git add ".pgn/$FILE"
+          git commit -m "Update PGN file for ${{ github.event.inputs.bot_name }}" || echo "No changes to commit"
           git push
