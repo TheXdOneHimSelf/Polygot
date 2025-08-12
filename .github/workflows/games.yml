@@ -24,12 +24,18 @@ jobs:
 
       - name: Download PGN
         run: |
-          FILE="${{ github.event.inputs.bot_name }}.pgn"
-          curl -L "https://lichess.org/api/games/user/${{ github.event.inputs.bot_name }}" \
+          mkdir -p .pgn
+          FILE=".pgn/${{ github.event.inputs.bot_name }}.pgn"
+          curl -fL "https://lichess.org/api/games/user/${{ github.event.inputs.bot_name }}" \
             -G \
             --data-urlencode "since=${{ steps.time.outputs.since }}" \
             -H "Accept: application/x-chess-pgn" \
             -o "$FILE"
+
+      - name: Show number of games downloaded
+        run: |
+          FILE=".pgn/${{ github.event.inputs.bot_name }}.pgn"
+          echo "Downloaded $(grep -c '^1\.' "$FILE") games"
 
       - name: Configure Git
         run: |
@@ -40,13 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          FILE="${{ github.event.inputs.bot_name }}.pgn"
-
-          # If file doesn't exist yet, add it
-          if [ ! -f ".pgn/$FILE" ]; then
-            echo "Created new PGN file for ${{ github.event.inputs.bot_name }}" > "$FILE"
-          fi
-
-          git add ".pgn/$FILE"
+          FILE=".pgn/${{ github.event.inputs.bot_name }}.pgn"
+          git add "$FILE"
           git commit -m "Update PGN file for ${{ github.event.inputs.bot_name }}" || echo "No changes to commit"
           git push
