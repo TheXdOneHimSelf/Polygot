@@ -164,8 +164,8 @@ def build_book_file(pgn_path, book_path):
     book.save_as_polyglot(book_path)
 
 if __name__ == "__main__":
-    build_book_file("pgn/ToromBot.pgn", "ToromBot.bin")
-    build_book_file("pgn/NNUE_Drift.pgn", "NNUE_Drift.bin")
-    build_book_file("pgn/NimsiluBot.pgn", "NimsiluBot.bin")
-    build_book_file("pgn/MaggiChess16.pgn", "MaggiChess16.bin")
-    build_book_file("pgn/Endogenetic-Bot.pgn", "Endogenetic-Bot.bin")
+    build_book_file("pgn/ToromBot.pgn", "bin/ToromBot.bin")
+    build_book_file("pgn/NNUE_Drift.pgn", "bin/NNUE_Drift.bin")
+    build_book_file("pgn/NimsiluBot.pgn", "bin/NimsiluBot.bin")
+    build_book_file("pgn/MaggiChess16.pgn", "bin/MaggiChess16.bin")
+    build_book_file("pgn/Endogenetic-Bot.pgn", "bin/Endogenetic-Bot.bin")
