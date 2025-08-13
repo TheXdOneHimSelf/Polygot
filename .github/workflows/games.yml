@@ -25,7 +25,7 @@ jobs:
       - name: Download PGN
         run: |
           mkdir -p .pgn
-          FILE=".pgn/${{ github.event.inputs.bot_name }}.pgn"
+          FILE="pgn/${{ github.event.inputs.bot_name }}.pgn"
           curl -fL "https://lichess.org/api/games/user/${{ github.event.inputs.bot_name }}" \
             -G \
             --data-urlencode "since=${{ steps.time.outputs.since }}" \
@@ -34,7 +34,7 @@ jobs:
 
       - name: Show number of games downloaded
         run: |
-          FILE=".pgn/${{ github.event.inputs.bot_name }}.pgn"
+          FILE="pgn/${{ github.event.inputs.bot_name }}.pgn"
           echo "Downloaded $(grep -c '^1\.' "$FILE") games"
 
       - name: Configure Git
@@ -46,7 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          FILE=".pgn/${{ github.event.inputs.bot_name }}.pgn"
+          FILE="pgn/${{ github.event.inputs.bot_name }}.pgn"
           git add "$FILE"
           git commit -m "Update PGN file for ${{ github.event.inputs.bot_name }}" || echo "No changes to commit"
           git push
