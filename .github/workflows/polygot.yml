@@ -22,11 +22,11 @@ jobs:
         run: |
           pip install python-chess
 
-      - name: 🏗️ Merge BIN files
+      - name: 🏗️ Build BIN files
         run: |
           python -u polygot.py
 
-      - name: 💾 Commit merged BIN file
+      - name: 💾 Commit BIN file
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
