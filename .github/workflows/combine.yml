@@ -1,4 +1,4 @@
-name: maker
+name: merger
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
 
       - name: 🏗️ Merge BIN files
         run: |
-          python -u polygot.py
+          python -u merger.py
 
       - name: 💾 Commit merged BIN file
         run: |
