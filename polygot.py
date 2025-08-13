@@ -1,11 +1,13 @@
-import os
 import chess
 import chess.pgn
 import chess.polyglot
 import datetime
 
+# Maximum number of moves from each game to include in the book
 MAX_BOOK_PLIES = 999
+# Internal weight normalization target
 MAX_BOOK_WEIGHT = 1000000
+# Maximum weight allowed in Polyglot entry (16-bit)
 POLYGLOT_MAX_WEIGHT = 65535
 
 def format_zobrist_key_hex(zobrist_key):
@@ -23,14 +25,17 @@ class BookPosition:
     def __init__(self):
         self.moves = {}
         self.fen = ""
+
     def get_move(self, uci):
         return self.moves.setdefault(uci, BookMove())
 
 class Book:
     def __init__(self):
         self.positions = {}
+
     def get_position(self, zobrist_key_hex):
         return self.positions.setdefault(zobrist_key_hex, BookPosition())
+
     def normalize_weights(self):
         for pos in self.positions.values():
             total_weight = sum(bm.weight for bm in pos.moves.values())
@@ -39,39 +44,81 @@ class Book:
                     bm.weight = int(bm.weight / total_weight * MAX_BOOK_WEIGHT)
                     if bm.weight < 1:
                         bm.weight = 1
+
     def save_as_polyglot(self, path):
         with open(path, 'wb') as outfile:
             entries = []
+
             for key_hex, pos in self.positions.items():
                 zbytes = bytes.fromhex(key_hex)
+
                 for uci, bm in pos.moves.items():
                     if bm.weight <= 0:
                         continue
+
                     move = bm.move
                     mi = move.to_square + (move.from_square << 6)
                     if move.promotion:
                         mi += ((move.promotion - 1) << 12)
+
                     mbytes = mi.to_bytes(2, byteorder="big")
+
+                    # Clamp weight to 1..65535 for Polyglot format
                     weight = min(max(bm.weight, 1), POLYGLOT_MAX_WEIGHT)
                     wbytes = weight.to_bytes(2, byteorder="big")
+
                     lbytes = (0).to_bytes(4, byteorder="big")
+
                     entry = zbytes + mbytes + wbytes + lbytes
                     entries.append(entry)
+
+            # Sort by Zobrist key and move order
             entries.sort(key=lambda e: (e[:8], e[10:12]), reverse=False)
+
             for entry in entries:
                 outfile.write(entry)
-        print(f"Saved {len(entries)} moves to book: {path}")
+
+            print(f"Saved {len(entries)} moves to book: {path}")
+
+    def merge_file(self, path):
+        with chess.polyglot.open_reader(path) as reader:
+            for i, entry in enumerate(reader, start=1):
+                key_hex = format_zobrist_key_hex(entry.key)
+                pos = self.get_position(key_hex)
+                move = entry.move()
+                uci = move.uci()
+
+                bm = pos.get_move(uci)
+                bm.move = move
+                bm.weight += entry.weight
+
+                if i % 10000 == 0:
+                    print(f"Merged {i} moves")
 
 class LichessGame:
     def __init__(self, game):
         self.game = game
+
+    def get_id(self):
+        return self.game.headers["Site"].split("/")[-1]
+
+    def get_time(self):
+        dt_str = self.game.headers["UTCDate"] + "T" + self.game.headers["UTCTime"]
+        return datetime.datetime.strptime(dt_str, "%Y.%m.%dT%H:%M:%S").timestamp()
+
+    def result(self):
+        return self.game.headers.get("Result", "*")
+
     def score(self):
-        res = self.game.headers.get("Result", "*")
+        res = self.result()
         return {"1-0": 2, "1/2-1/2": 1}.get(res, 0)
 
 def correct_castling_uci(uci, board):
+    """Fix castling moves for Polyglot, skip non-standard moves."""
+    # Skip non-standard or drop moves like "P@e4"
     if len(uci) < 4 or "@" in uci:
-        return None
+        return None  # mark invalid
+
     piece = board.piece_at(chess.parse_square(uci[:2]))
     if piece and piece.piece_type == chess.KING:
         if uci == "e1g1": return "e1h1"
@@ -86,36 +133,39 @@ def build_book_file(pgn_path, book_path):
         for i, game in enumerate(iter(lambda: chess.pgn.read_game(pgn_file), None), start=1):
             if i % 100 == 0:
                 print(f"Processed {i} games from {pgn_path}")
+
             ligame = LichessGame(game)
             board = game.board()
             score = ligame.score()
             ply = 0
+
             for move in game.mainline_moves():
                 if ply >= MAX_BOOK_PLIES:
                     break
+
                 uci = correct_castling_uci(move.uci(), board)
+
+                # Skip if move is invalid for Polyglot
                 if not uci:
                     board.push(move)
                     ply += 1
                     continue
+
                 zobrist_key_hex = get_zobrist_key_hex(board)
                 position = book.get_position(zobrist_key_hex)
                 bm = position.get_move(uci)
                 bm.move = chess.Move.from_uci(uci)
                 bm.weight += score if board.turn == chess.WHITE else (2 - score)
+
                 board.push(move)
                 ply += 1
+
     book.normalize_weights()
     book.save_as_polyglot(book_path)
 
 if __name__ == "__main__":
-    PGN_FOLDER = "pgn"
-    BIN_FOLDER = "bin"
-    os.makedirs(BIN_FOLDER, exist_ok=True)
-
-    for filename in os.listdir(PGN_FOLDER):
-        if filename.lower().endswith(".pgn"):
-            pgn_path = os.path.join(PGN_FOLDER, filename)
-            bin_name = os.path.splitext(filename)[0] + ".bin"
-            bin_path = os.path.join(BIN_FOLDER, bin_name)
-            build_book_file(pgn_path, bin_path)
+    build_book_file("pgn/ToromBot.pgn", "ToromBot.bin")
+    build_book_file("pgn/NNUE_Drift.pgn", "NNUE_Drift.bin")
+    build_book_file("pgn/NimsiluBot.pgn", "NimsiluBot.bin")
+    build_book_file("pgn/MaggiChess16.pgn", "MaggiChess16.bin")
+    build_book_file("pgn/Endogenetic-Bot.pgn", "Endogenetic-Bot.bin")
