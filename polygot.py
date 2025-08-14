@@ -63,7 +63,6 @@ class Book:
 
                     mbytes = mi.to_bytes(2, byteorder="big")
 
-                    # Clamp weight to 1..65535 for Polyglot format
                     weight = min(max(bm.weight, 1), POLYGLOT_MAX_WEIGHT)
                     wbytes = weight.to_bytes(2, byteorder="big")
 
@@ -72,7 +71,6 @@ class Book:
                     entry = zbytes + mbytes + wbytes + lbytes
                     entries.append(entry)
 
-            # Sort by Zobrist key and move order
             entries.sort(key=lambda e: (e[:8], e[10:12]), reverse=False)
 
             for entry in entries:
@@ -114,11 +112,8 @@ class LichessGame:
         return {"1-0": 2, "1/2-1/2": 1}.get(res, 0)
 
 def correct_castling_uci(uci, board):
-    """Fix castling moves for Polyglot, skip non-standard moves."""
-    # Skip non-standard or drop moves like "P@e4"
     if len(uci) < 4 or "@" in uci:
-        return None  # mark invalid
-
+        return None
     piece = board.piece_at(chess.parse_square(uci[:2]))
     if piece and piece.piece_type == chess.KING:
         if uci == "e1g1": return "e1h1"
@@ -135,6 +130,11 @@ def build_book_file(pgn_path, book_path):
                 print(f"Processed {i} games from {pgn_path}")
 
             ligame = LichessGame(game)
+
+            # ✅ Only include draws
+            if ligame.result() != "1/2-1/2":
+                continue
+
             board = game.board()
             score = ligame.score()
             ply = 0
@@ -144,8 +144,6 @@ def build_book_file(pgn_path, book_path):
                     break
 
                 uci = correct_castling_uci(move.uci(), board)
-
-                # Skip if move is invalid for Polyglot
                 if not uci:
                     board.push(move)
                     ply += 1
