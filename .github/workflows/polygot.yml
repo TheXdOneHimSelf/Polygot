@@ -25,7 +25,11 @@ jobs:
       - name: 🏗️ Build BIN files
         run: |
           python -u polygot.py
-
+          Echo "finished draws.bin"
+          python -u white.py
+          Echo "finished white.bin"
+          python -u black.py
+          Echo "finished black.bin"
       - name: 💾 Commit BIN file
         run: |
           git config --global user.name "github-actions[bot]"
