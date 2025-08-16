@@ -30,6 +30,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add *.bin
+          git add *.pgn
           git commit -m "♟️ Auto-merge Polyglot books [skip ci]" || echo "No changes to commit"
           git push
