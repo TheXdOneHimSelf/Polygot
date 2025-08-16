@@ -24,7 +24,7 @@ jobs:
 
       - name: 🏗️ Merge BIN files
         run: |
-          python -u merger.py
+          cat pgn/Endogenetic-Bot.pgn pgn/Exogenetic-Bot.pgn pgn/MaggiChess16.pgn pgn/NNUE_Drift.pgn pgn/NimsiluBot.pgn pgn/ToromBot.pgn > combined.pgn
 
       - name: 💾 Commit merged BIN file
         run: |
