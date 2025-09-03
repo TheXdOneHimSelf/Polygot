@@ -25,7 +25,7 @@ jobs:
       - name: 🏗️ Build BIN files
         run: |
           python -u polygot.py
-          echo "finished draws.bin"
+          echo "finished draw.bin"
           python -u white.py
           echo "finished white.bin"
           python -u black.py
