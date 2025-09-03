@@ -11,14 +11,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download PGNs (parallel)
+      - name: Download PGNs (sequential)
         shell: bash
         run: |
           BOTS=("Exogenetic-Bot" "ToromBot" "Endogenetic-Bot" "NNUE_Drift" "MaggiChess16" "NimsiluBot")
           SINCE=0  # Change if you want games only after a certain timestamp
           mkdir -p pgn
-          fetch_bot() {
-            BOT="$1"
+          for BOT in "${BOTS[@]}"; do
             echo "Fetching games for $BOT..."
             curl -s -L "https://lichess.org/api/games/user/${BOT}" \
               -G \
@@ -28,18 +27,11 @@ jobs:
               --data-urlencode "pgnInJson=false" \
               -H "Accept: application/x-chess-pgn" \
               > "pgn/${BOT}.pgn"
-          }
-          export -f fetch_bot
-          parallel --jobs 6 fetch_bot ::: "${BOTS[@]}"
-        env:
-          GNU_PARALLEL: "true"
+
       - name: Commit PGNs
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add pgn/*.pgn
-          git commit -m "Update PGNs from Lichess bots" || echo "No changes to commit"
+          git commit -m "Update PGNs" || echo "No changes to commit"
           git push
-      - name: Install GNU parallel (if missing)
-        run: sudo apt-get update && sudo apt-get install -y parallel
-        if: runner.os == 'Linux'
