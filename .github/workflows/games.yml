@@ -1,52 +1,37 @@
-name: Download
+
+name: Fetch Lichess Bot Games
 
 on:
-  workflow_dispatch:
-    inputs:
-      bot_name:
-        description: "Enter the Lichess bot username"
-        required: true
-        default: "indianguyplayz"
+  workflow_dispatch: # Run manually
 
 jobs:
-  download-wins:
+  fetch:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Calculate “since” timestamp 
-        id: time
+      - name: Download PGNs
         run: |
-          SINCE=$(date -d "2024-03-01 00:00:00 UTC" +%s)000
-          echo "since=$SINCE" >> "$GITHUB_OUTPUT"
-
-      - name: Download PGN
+          BOTS=("Exogenetic-Bot" "ToromBot" "Endogenetic-Bot" "NNUE_Drift" "MaggiChess16" "NimsiluBot")
+          SINCE=0  # Change if you want games only after a certain timestamp
+          mkdir -p pgn
+          for BOT in "${BOTS[@]}"; do
+              echo "Fetching games for $BOT..."
+              curl -s -L "https://lichess.org/api/games/user/${BOT}" \
+                -G \
+                --data-urlencode "since=${SINCE}" \
+                --data-urlencode "max=5000" \
+                --data-urlencode "moves=true" \
+                --data-urlencode "pgnInJson=false" \
+                -H "Accept: application/x-chess-pgn" \
+                > "pgn/${BOT}.pgn"
+          done
+      - name: Commit PGNs
         run: |
-          mkdir -p .pgn
-          FILE="pgn/${{ github.event.inputs.bot_name }}.pgn"
-          curl -fL "https://lichess.org/api/games/user/${{ github.event.inputs.bot_name }}" \
-            -G \
-            --data-urlencode "since=${{ steps.time.outputs.since }}" \
-            -H "Accept: application/x-chess-pgn" \
-            -o "$FILE"
-
-      - name: Show number of games downloaded
-        run: |
-          FILE="pgn/${{ github.event.inputs.bot_name }}.pgn"
-          echo "Downloaded $(grep -c '^1\.' "$FILE") games"
-
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push PGN file
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          FILE="pgn/${{ github.event.inputs.bot_name }}.pgn"
-          git add "$FILE"
-          git commit -m "Update PGN file for ${{ github.event.inputs.bot_name }}" || echo "No changes to commit"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add pgn/*.pgn
+          git commit -m "Update PGNs from Lichess bots" || echo "No changes to commit"
           git push
