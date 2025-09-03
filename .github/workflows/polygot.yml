@@ -26,10 +26,6 @@ jobs:
         run: |
           python -u polygot.py
           echo "finished draw.bin"
-          python -u white.py
-          echo "finished white.bin"
-          python -u black.py
-          echo "finished black.bin"
       - name: 💾 Commit BIN file
         run: |
           git config --global user.name "github-actions[bot]"
