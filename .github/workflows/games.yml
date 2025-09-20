@@ -2,6 +2,8 @@ name: Fetch Lichess Bot Games
 
 on:
   workflow_dispatch: # Run manually
+  schedule:
+    - cron: '0 1 * * *'
 
 jobs:
   fetch:
