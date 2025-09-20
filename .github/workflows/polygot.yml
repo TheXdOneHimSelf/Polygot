@@ -17,10 +17,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-
+      
       - name: 📦 Install dependencies
         run: |
           pip install python-chess
+
+      - name: delete old bin
+        run: |
+          rm -f draw.bin white.bin black.bin    
 
       - name: 🏗️ Build BIN files
         run: |
