@@ -36,3 +36,15 @@ jobs:
           git add pgn/*.pgn
           git commit -m "Update PGNs from Lichess bots" || echo "No changes to commit"
           git push
+
+      - name: Trigger bot workflow
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'combine.yml',
+              ref: 'main'
+            })
