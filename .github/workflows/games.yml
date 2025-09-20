@@ -37,7 +37,7 @@ jobs:
           git commit -m "Update PGNs from Lichess bots" || echo "No changes to commit"
           git push
 
-      - name: Trigger bot workflow
+      - name: Trigger workflow
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
