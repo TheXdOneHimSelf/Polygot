@@ -26,6 +26,18 @@ jobs:
         run: |
           cat pgn/Endogenetic-Bot.pgn pgn/Exogenetic-Bot.pgn pgn/MaggiChess16.pgn pgn/NNUE_Drift.pgn pgn/NimsiluBot.pgn pgn/ToromBot.pgn > combined.pgn
 
+      - name: Trigger bot workflow
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'polygot.yml',
+              ref: 'main'
+            })
+
       - name: 💾 Commit merged BIN file
         run: |
           git config --global user.name "github-actions[bot]"
