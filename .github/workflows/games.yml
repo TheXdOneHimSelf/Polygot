@@ -14,7 +14,7 @@ jobs:
       - name: Download PGNs (sequential)
         shell: bash
         run: |
-          BOTS=("Exogenetic-Bot" "ToromBot" "Endogenetic-Bot" "NNUE_Drift" "MaggiChess16" "NimsiluBot")
+          BOTS=("Exogenetic-Bot" "ToromBot" "Endogenetic-Bot" "NNUE_Drift" "MaggiChess16")
           SINCE=0  # Change if you want games only after a certain timestamp
           mkdir -p pgn
           for BOT in "${BOTS[@]}"; do
