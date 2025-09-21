@@ -1,4 +1,90 @@
 [Event "casual Chess960 game"]
+[Site "https://lichess.org/MufyYqQk"]
+[Date "2025.09.20"]
+[White "Endogenetic-Bot"]
+[Black "PetersBot"]
+[Result "1/2-1/2"]
+[GameId "MufyYqQk"]
+[UTCDate "2025.09.20"]
+[UTCTime "21:19:18"]
+[WhiteElo "2451"]
+[BlackElo "2424"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Chess960"]
+[TimeControl "180+0"]
+[ECO "?"]
+[Termination "Normal"]
+[FEN "rkbnqbrn/pppppppp/8/8/8/8/PPPPPPPP/RKBNQBRN w KQkq - 0 1"]
+[SetUp "1"]
+
+1. d4 d5 2. e4 dxe4 3. Bc4 e6 4. Ng3 Ng6 5. Nc3 a6 6. a3 Nc6 7. Qxe4 Bd6 8. Re1 Qe7 9. f4 Qh4 10. d5 exd5 11. Bxd5 Nge7 12. Bxf7 Rf8 13. Bc4 Bxf4 14. Rf1 g5 15. Ka2 Ng6 16. Bxf4 gxf4 17. Bd5 Nce7 18. Rae1 Nxd5 19. Nxd5 a5 20. Ne2 f3 21. gxf3 Bh3 22. Rg1 Qxe4 23. fxe4 Be6 24. Kb1 O-O-O 25. Nec3 Rf2 26. Rh1 c6 27. Nd1 Rf3 28. N5e3 Rdf8 29. a4 Ne5 30. b3 R8f4 31. Ng2 Rf7 32. Reg1 Rh3 33. Nge3 Rf4 34. Ng2 Rf7 35. Nge3 Rf4 36. Nf5 Kb8 37. Rg3 Rxg3 38. Nxg3 Nf3 39. Kb2 Rh4 40. Rf1 Ng5 41. Nf2 Rxh2 42. Nd3 Rh3 43. Ne2 Nxe4 44. Nef4 Rh6 45. Nxe6 Rxe6 46. Rf5 Rg6 47. Rxa5 Rg5 48. Rxg5 Nxg5 49. Nf4 Ne4 50. b4 c5 51. c3 Ka7 52. Kb3 Nd2+ 53. Kc2 Nc4 54. Kb3 Ne5 55. a5 cxb4 56. cxb4 Nc6 57. Nh5 Ka6 58. Kc4 Nxa5+ 59. bxa5 Kxa5 60. Ng7 b6 61. Ne8 b5+ 62. Kd5 b4 63. Nf6 b3 64. Ne4 b2 65. Nc3 b1=Q 66. Nxb1 h6 67. Ke6 h5 68. Kf7 h4 69. Nc3 h3 70. Ne4 h2 71. Ng3 h1=Q 72. Nxh1 1/2-1/2
+
+
+[Event "casual bullet game"]
+[Site "https://lichess.org/abNpiX85"]
+[Date "2025.09.20"]
+[White "Endogenetic-Bot"]
+[Black "IndiBot"]
+[Result "1/2-1/2"]
+[GameId "abNpiX85"]
+[UTCDate "2025.09.20"]
+[UTCTime "20:50:05"]
+[WhiteElo "3224"]
+[BlackElo "3275"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "60+0"]
+[ECO "C65"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 Bf8 17. N3h4 Nd4 18. Qg4 Qe8 19. Bc3 Bxf5 20. Nxf5 Nxf5 21. exf5 axb5 22. axb5 Rxa1 23. Rxa1 Qxb5 24. h6 Qc6 25. Bd2 Kh8 26. Qh5 Re7 27. g3 gxh6 28. Be3 Bg7 29. Ra7 Bf8 30. Ra1 Bg7 31. Ra7 1/2-1/2
+
+
+[Event "casual bullet game"]
+[Site "https://lichess.org/9FQZhxyW"]
+[Date "2025.09.20"]
+[White "IndiBot"]
+[Black "Endogenetic-Bot"]
+[Result "1/2-1/2"]
+[GameId "9FQZhxyW"]
+[UTCDate "2025.09.20"]
+[UTCTime "20:48:35"]
+[WhiteElo "3275"]
+[BlackElo "3224"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "30+0"]
+[ECO "C65"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Re6 Bf8 43. Re5 Be7 44. Rf5+ Kg6 45. Re5 Kf7 46. Re6 Bf8 47. e5 Bg7 48. Kh2 b5 49. Rc6 Bxe5 50. Rxc5 b4 51. d4 Bd6 52. Rb5 Kf6 53. Kg2 Be7 54. Kh2 g4 55. Kg2 Bd6 56. Rb8 g3 57. Rb5 Ke7 58. Kh3 Kf6 59. Rb7 Kf7 60. Rb5 Ke8 61. Kg2 Kd7 62. Rb8 Be7 63. Kh3 Bd6 64. Rb5 Kc8 65. Kg2 Kd7 66. Rb7 Kc8 67. Rb5 h4 68. Kh3 Be7 69. Kg2 Bf8 70. Kh3 Bd6 71. Kg2 Be7 72. Kh3 Bd6 73. Kg2 Kd7 74. Rb8 c5 75. Rb7+ Kc8 76. Rb6 cxd4 77. Rxd6 d3 78. Rc6+ Kd7 79. Rc1 Kd6 80. Rd1 Kxd5 81. Rxd3+ Kc4 82. Rd8 b3 83. Rc8+ Kd3 84. Rd8+ Kc3 85. Rc8+ Kb4 86. Rb8+ Kc3 87. Rc8+ Kd2 88. Rd8+ Kc2 89. Rc8+ Kd3 90. Rd8+ 1/2-1/2
+
+
+[Event "casual blitz game"]
+[Site "https://lichess.org/J5jyRiev"]
+[Date "2025.09.20"]
+[White "Endogenetic-Bot"]
+[Black "PetersBot"]
+[Result "1/2-1/2"]
+[GameId "J5jyRiev"]
+[UTCDate "2025.09.20"]
+[UTCTime "15:46:26"]
+[WhiteElo "3009"]
+[BlackElo "2921"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "180+1"]
+[ECO "C65"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 Re8 9. Kh1 b6 10. a4 a5 11. h3 Bb4 12. b3 f6 13. Ng1 Nc5 14. Bd2 Ba6 15. Bxb4 axb4 16. Ne3 Ne6 17. Qg4 Bc8 18. Qg3 Nf4 19. Rae1 Be6 20. Ne2 Qd6 21. Qf3 Nxe2 22. Rxe2 b5 23. axb5 cxb5 24. g4 c5 25. Rg1 Rf8 26. h4 Qc7 27. Ree1 Qd6 28. Ra1 Ra3 29. Rad1 Qd8 30. Kh2 Qd4 31. Rg3 Rf7 32. Qg2 Raa7 33. Rb1 Kf8 34. Kh1 g6 35. h5 g5 36. h6 Ke8 37. Qf3 Rf8 38. Rgg1 Kd7 39. Kg2 Kc6 40. Rh1 Ra2 41. Rhe1 Qd7 42. Ra1 Ra3 43. c4 Qxd3 44. cxb5+ Kxb5 45. Rad1 Qxb3 46. Rd2 c4 47. Red1 Ra6 48. Qe2 Rc8 49. Rb2 Qc3 50. Rdb1 Rd6 51. Rb3 Qd2 52. Rxb4+ Qxb4 53. Rxb4+ Kxb4 54. Qb2+ Kc5 55. Qb7 c3 56. Qe7 Kc6 57. Qxf6 Bb3 58. Qxe5 c2 59. Qc3+ Kd7 60. Qg7+ Kc6 61. Qb2 Kd7 62. Qg7+ Kc6 63. Qb2 Kd7 64. Qg7+ 1/2-1/2
+
+
+[Event "casual Chess960 game"]
 [Site "https://lichess.org/53uRFFSV"]
 [Date "2025.09.20"]
 [White "Chrysogenum"]
@@ -107535,89 +107621,5 @@
 [Termination "Normal"]
 
 1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Rg8+ Kf6 44. Re8 Kf7 45. Rh8 1/2-1/2
-
-
-[Event "Bot private test Arena"]
-[Site "https://lichess.org/MLoNQVyA"]
-[Date "2025.09.04"]
-[White "Endogenetic-Bot"]
-[Black "Fair_Bot"]
-[Result "1/2-1/2"]
-[GameId "MLoNQVyA"]
-[UTCDate "2025.09.04"]
-[UTCTime "06:19:37"]
-[WhiteElo "3010"]
-[BlackElo "2994"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rb8 Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Re8 Kf7 44. Rh8 1/2-1/2
-
-
-[Event "Bot private test Arena"]
-[Site "https://lichess.org/EBRTb1vk"]
-[Date "2025.09.04"]
-[White "Exogenetic-Bot"]
-[Black "Endogenetic-Bot"]
-[Result "1/2-1/2"]
-[GameId "EBRTb1vk"]
-[UTCDate "2025.09.04"]
-[UTCTime "06:19:21"]
-[WhiteElo "2990"]
-[BlackElo "3010"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Rb8 Kf6 44. Re8 Kf7 45. Re6 Bf8 46. Re5 Be7 47. Re6 Bf8 48. Re5 Be7 49. Re6 Bf8 1/2-1/2
-
-
-[Event "Bot private test Arena"]
-[Site "https://lichess.org/MMLZV2a8"]
-[Date "2025.09.04"]
-[White "Speeedrunchessgames"]
-[Black "Endogenetic-Bot"]
-[Result "1/2-1/2"]
-[GameId "MMLZV2a8"]
-[UTCDate "2025.09.04"]
-[UTCTime "06:18:50"]
-[WhiteElo "2962"]
-[BlackElo "3010"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Rg8+ Kf6 44. Re8 Kf7 45. Rh8 1/2-1/2
-
-
-[Event "Bot private test Arena"]
-[Site "https://lichess.org/xhiwIqcM"]
-[Date "2025.09.04"]
-[White "Endogenetic-Bot"]
-[Black "Fair_Bot"]
-[Result "1/2-1/2"]
-[GameId "xhiwIqcM"]
-[UTCDate "2025.09.04"]
-[UTCTime "06:18:20"]
-[WhiteElo "3010"]
-[BlackElo "2994"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rb8 Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Rg8+ Kf6 44. Re8 Kf7 45. Rh8 1/2-1/2
 
 
