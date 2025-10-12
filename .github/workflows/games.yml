@@ -1,4 +1,4 @@
-name: Fetch Lichess Bot Games
+name: game
 
 on:
   workflow_dispatch: # Run manually
