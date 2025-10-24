@@ -1,3 +1,108 @@
+[Event "casual rapid game"]
+[Site "https://lichess.org/dvsJQBuW"]
+[Date "2025.10.23"]
+[White "Pat9471"]
+[Black "Endogenetic-Bot"]
+[Result "1/2-1/2"]
+[GameId "dvsJQBuW"]
+[UTCDate "2025.10.23"]
+[UTCTime "21:57:19"]
+[WhiteElo "3059"]
+[BlackElo "3054"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "180+10"]
+[ECO "C67"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Nxe4 5. Re1 Nd6 6. Nxe5 Be7 7. Bf1 Nxe5 8. Rxe5 O-O 9. d4 Bf6 10. Re1 Re8 11. c3 Rxe1 12. Qxe1 Ne8 13. Bf4 d5 14. Nd2 Bf5 15. Qe3 Nd6 16. Qg3 Be7 17. Qf3 Ne4 18. Nxe4 Bxe4 19. Qg4 a5 20. Re1 c6 21. a4 Bf6 22. Re3 g6 23. Qe2 h5 24. g3 Qd7 25. Bg2 Bf5 26. h4 Be6 27. Bf1 Bg4 28. Qe1 b5 29. b3 Rc8 30. Qa1 bxa4 31. Qxa4 Bd8 32. Ba6 Ra8 33. Bd3 Bc7 34. Bxc7 Qxc7 35. Qa3 Kg7 36. Kf1 Qd7 37. Re7 Qd8 38. Re3 Qf8 39. Qxf8+ Kxf8 40. Bc2 Rb8 41. Ke1 a4 42. bxa4 Rb2 43. Bd1 Bxd1 44. Kxd1 Ra2 45. Re2 Rxa4 46. Rb2 Ra7 47. Rb6 Rc7 48. Kd2 Ke7 49. Kd3 c5 50. dxc5 Rxc5 51. Rb7+ Kf6 52. f3 Rc4 53. Ra7 Rc5 54. Kd4 Rc4+ 55. Kd3 Rc5 56. Kd4 Rc6 57. Ra5 Rc4+ 58. Kd3 Ke6 59. Ra6+ Ke7 60. Ra5 Ke6 61. Ra6+ Ke7 62. Ra5 Kd6 63. Ra7 Rc7 64. Rxc7 Kxc7 65. Kd4 1/2-1/2
+
+
+[Event "casual bullet game"]
+[Site "https://lichess.org/mG8EOKbN"]
+[Date "2025.10.23"]
+[White "Endogenetic-Bot"]
+[Black "P-chessbot"]
+[Result "1-0"]
+[GameId "mG8EOKbN"]
+[UTCDate "2025.10.23"]
+[UTCTime "16:04:02"]
+[WhiteElo "3224"]
+[BlackElo "2744"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "30+0"]
+[ECO "C65"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bd6 5. O-O a6 6. Ba4 O-O 7. c3 h6 8. Nbd2 Re8 9. d4 exd4 10. cxd4 Bf4 11. e5 Nd5 12. Bb3 Nce7 13. g3 Bxd2 14. Bxd2 d6 15. Nh4 dxe5 16. dxe5 Nf5 17. Ba5 Nxh4 18. Bxd5 Nf5 19. Rc1 Ne7 20. Bxf7+ Kxf7 21. Qh5+ Ng6 22. Rxc7+ Re7 23. Rd1 Qe8 24. Rxe7+ Qxe7 25. Rd6 Qg5 26. Qf3+ Kg8 27. Bd2 Qxe5 28. Rxg6 Qf5 29. Qb3+ Kh7 30. Rd6 b5 31. Qd3 Qxd3 32. Rxd3 Ra7 33. Bc3 Re7 34. h4 Bh3 35. Rd6 Re6 36. Rd8 Bg4 37. Kg2 Re7 38. Ra8 Rf7 39. f4 Re7 40. Rxa6 Re2+ 41. Kf1 Re3 42. Ra7 Kg6 43. Rxg7+ Kf5 44. Be1 h5 45. Rg5+ Ke4 46. Bf2 Rd3 47. Re5+ Kf3 48. f5 Bh3+ 49. Kg1 Rd6 50. a3 Rc6 51. Kh2 Bg4 52. Bc5 Rc7 53. f6 Bc8 54. Rxh5 Ke4 55. Rg5 Be6 56. h5 b4 57. axb4 Rd7 58. Kg2 Rd2+ 59. Bf2 Rxb2 60. h6 Rxb4 61. h7 Rb8 62. Rg7 Bd5 63. f7 Kf5+ 64. Kh3 Bxf7 65. Rxf7+ Ke4 66. h8=Q Rxh8+ 67. Kg2 Ke5 68. g4 Ra8 69. g5 Rg8 70. Be3 Rg6 71. Rf6 Rxf6 72. Bd4+ Kd5 73. Bxf6 Ke4 74. g6 Kf5 75. g7 Kxf6 76. g8=Q Ke5 77. Qd8 Ke4 78. Qd7 Ke5 79. Kf3 Kf6 80. Kf4 Kg6 81. Qe7 Kh6 82. Kf5 Kh5 83. Qh7# 1-0
+
+
+[Event "casual bullet game"]
+[Site "https://lichess.org/qolBmdsy"]
+[Date "2025.10.23"]
+[White "Endogenetic-Bot"]
+[Black "R4033"]
+[Result "1/2-1/2"]
+[GameId "qolBmdsy"]
+[UTCDate "2025.10.23"]
+[UTCTime "15:46:38"]
+[WhiteElo "3224"]
+[BlackElo "2973"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "60+1"]
+[ECO "B90"]
+[Termination "Normal"]
+
+1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be3 e5 7. Nb3 Be6 8. f3 Be7 9. Qd2 Nbd7 10. g4 O-O 11. g5 Nh5 12. O-O-O Qc7 13. Kb1 b5 14. Nd5 Bxd5 15. exd5 Nb6 16. Na5 Nxd5 17. Qxd5 Qxa5 18. Bd3 g6 19. Qb7 Rfe8 20. Be4 Rab8 21. Qa7 b4 22. Bc6 Rec8 23. Bb7 Re8 24. Bc6 Rec8 25. Qxe7 Rxc6 26. Rxd6 Rxd6 27. Qxd6 Rd8 28. Qc5 Qxc5 29. Bxc5 a5 30. a3 bxa3 31. Bxa3 f5 32. gxf6 Kf7 33. Re1 Kxf6 34. b3 Rd5 35. Bb2 Nf4 36. c4 Rc5 37. Bc3 g5 38. Ka2 h5 39. Ka3 Ne6 40. Rd1 Kf5 41. Ka4 h4 42. Rd6 h3 43. Ka3 Rc8 44. Rd5 Rc5 45. Rd6 Rc8 46. Rd5 Rc5 47. Rd3 Rc8 48. Bxa5 Ra8 49. b4 Nd4 50. Ka4 Rc8 51. Rc3 Ne2 52. Re3 Nd4 53. Rc3 Ne2 54. Rc2 Nd4 55. Rc1 Nxf3 56. c5 Nxh2 57. c6 Nf3 58. b5 Nd4 59. c7 Ne6 60. b6 Nxc7 61. bxc7 g4 62. Rh1 Kf4 63. Kb5 Kg3 64. Kc6 Kg2 65. Re1 h2 66. Kd7 Ra8 1/2-1/2
+
+
+[Event "casual bullet game"]
+[Site "https://lichess.org/5CZNaLw4"]
+[Date "2025.10.23"]
+[White "Endogenetic-Bot"]
+[Black "Sooraj_Kumar_P_S"]
+[Result "1/2-1/2"]
+[GameId "5CZNaLw4"]
+[UTCDate "2025.10.23"]
+[UTCTime "06:48:41"]
+[WhiteElo "3224"]
+[BlackElo "3369"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "60+0"]
+[ECO "C65"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Re8 Kf7 44. Re6 Bf8 45. Re5 Be7 46. Re6 Bf8 47. Re5 Be7 48. Re6 Bf8 1/2-1/2
+
+
+[Event "casual bullet game"]
+[Site "https://lichess.org/iZWjTIZn"]
+[Date "2025.10.23"]
+[White "Sooraj_Kumar_P_S"]
+[Black "Endogenetic-Bot"]
+[Result "1/2-1/2"]
+[GameId "iZWjTIZn"]
+[UTCDate "2025.10.23"]
+[UTCTime "06:42:20"]
+[WhiteElo "3369"]
+[BlackElo "3224"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "30+0"]
+[ECO "C67"]
+[Termination "Normal"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Nxe4 5. Re1 Nd6 6. Nxe5 Be7 7. Bf1 Nxe5 8. Rxe5 O-O 9. d4 Bf6 10. Re2 b6 11. Re1 Bb7 12. Bf4 Ne4 13. Nd2 Re8 14. a4 c5 15. Nf3 h5 16. Be3 g6 17. c3 Qc7 18. Qb3 d5 19. g3 c4 20. Qd1 Bc8 21. Bf4 Qc6 22. Bg2 Bf5 23. h3 Rad8 24. a5 Rd7 25. axb6 Qxb6 26. Ra2 Bd8 27. Qa4 Rde7 28. Nh4 Bc7 29. Qxa7 Qxa7 30. Rxa7 Bxf4 31. Rxe7 Rxe7 32. gxf4 Rb7 33. Re2 Kg7 34. Nxf5+ gxf5 35. h4 Kf6 36. Bf3 Kg6 37. Kh2 Ra7 38. Kg2 Ra1 39. Rc2 Ra2 40. Re2 Ra8 41. Kh2 Ra2 42. Kh3 Ra1 43. Bg2 Ra2 44. Rc2 Ra1 45. Re2 Ra2 46. Rc2 Ra1 47. Re2 1/2-1/2
+
+
 [Event "casual Horde game"]
 [Site "https://lichess.org/UOck2yGL"]
 [Date "2025.10.22"]
@@ -108093,110 +108198,5 @@
 [Termination "Normal"]
 
 1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rb8 Kf7 41. Rh8 Kg6 42. Rg8+ Kf6 43. Re8 Kf7 44. Rh8 1/2-1/2
-
-
-[Event "Bots Arena"]
-[Site "https://lichess.org/pV4lerzK"]
-[Date "2025.09.04"]
-[White "strain-on-veins"]
-[Black "Endogenetic-Bot"]
-[Result "1/2-1/2"]
-[GameId "pV4lerzK"]
-[UTCDate "2025.09.04"]
-[UTCTime "15:39:01"]
-[WhiteElo "3018"]
-[BlackElo "3010"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Rg8+ Kf6 44. Re8 Kf7 45. Rh8 1/2-1/2
-
-
-[Event "Bots Arena"]
-[Site "https://lichess.org/ZzSeyER2"]
-[Date "2025.09.04"]
-[White "Endogenetic-Bot"]
-[Black "Fair_Bot"]
-[Result "1/2-1/2"]
-[GameId "ZzSeyER2"]
-[UTCDate "2025.09.04"]
-[UTCTime "15:38:30"]
-[WhiteElo "3010"]
-[BlackElo "2994"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Re8 Kf7 41. Rh8 Kg6 42. Re8 Kf7 43. Rh8 1/2-1/2
-
-
-[Event "Bots Arena"]
-[Site "https://lichess.org/CTTF575c"]
-[Date "2025.09.04"]
-[White "strain-on-veins"]
-[Black "Endogenetic-Bot"]
-[Result "1/2-1/2"]
-[GameId "CTTF575c"]
-[UTCDate "2025.09.04"]
-[UTCTime "15:37:59"]
-[WhiteElo "3018"]
-[BlackElo "3010"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Rg8+ Kf6 44. Re8 Kf7 45. Rh8 1/2-1/2
-
-
-[Event "Bots Arena"]
-[Site "https://lichess.org/DmDiioEh"]
-[Date "2025.09.04"]
-[White "Endogenetic-Bot"]
-[Black "Fair_Bot"]
-[Result "1/2-1/2"]
-[GameId "DmDiioEh"]
-[UTCDate "2025.09.04"]
-[UTCTime "15:37:28"]
-[WhiteElo "3010"]
-[BlackElo "2994"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Rg8+ Kf6 41. Re8 Kf7 42. Rh8 Kg6 43. Rg8+ Kf6 44. Re8 Kf7 45. Rh8 1/2-1/2
-
-
-[Event "Bots Arena"]
-[Site "https://lichess.org/jSokyImr"]
-[Date "2025.09.04"]
-[White "Endogenetic-Bot"]
-[Black "strain-on-veins"]
-[Result "1/2-1/2"]
-[GameId "jSokyImr"]
-[UTCDate "2025.09.04"]
-[UTCTime "15:36:57"]
-[WhiteElo "3010"]
-[BlackElo "3018"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "180+0"]
-[ECO "C65"]
-[Termination "Normal"]
-
-1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 5. Bxc6 dxc6 6. O-O Nd7 7. Nbd2 O-O 8. Nc4 f6 9. Bd2 Rf7 10. a4 b6 11. b4 Be7 12. h4 c5 13. b5 Nf8 14. Ne3 Ne6 15. h5 a6 16. Nf5 axb5 17. axb5 Rxa1 18. Qxa1 Qe8 19. Qa8 Bd7 20. Ra1 Bxb5 21. c4 Bc6 22. Qxe8+ Bxe8 23. h6 g6 24. Ra8 Bd8 25. Ng7 Bc6 26. Rb8 Rxg7 27. hxg7 Kxg7 28. Ne1 Be7 29. f3 Bd6 30. Nc2 f5 31. Ne3 f4 32. Nd5 g5 33. Kf2 h5 34. g3 Bxd5 35. cxd5 fxg3+ 36. Kxg3 Nf4 37. Bxf4 exf4+ 38. Kh3 Kf7 39. Rh8 Kg6 40. Re8 Kf7 41. Rh8 Kg6 42. Rb8 Kf6 43. Re8 Kf7 44. Rh8 1/2-1/2
 
 
