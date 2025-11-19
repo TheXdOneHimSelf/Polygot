@@ -18534,7 +18534,7 @@
 [BlackTitle "BOT"]
 [Variant "Standard"]
 [TimeControl "60+1"]
-[ECO "A15"]
+[ECO "A11"]
 [Termination "Normal"]
 
 1. Nf3 Nf6 2. c4 c6 3. e3 d5 4. Nc3 e6 5. b3 Bd6 6. Bb2 O-O 7. Qc2 e5 8. cxd5 cxd5 9. Nb5 Nc6 10. Nxd6 Qxd6 11. d4 Nb4 12. Qd1 e4 13. Ne5 Bg4 14. Nxg4 Nxg4 15. a3 Qf6 16. Qd2 Nc6 17. Rc1 Qg5 18. a4 Rfe8 19. Bb5 Re6 20. h3 Nh6 21. g3 Nf5 22. h4 Qg6 23. Rc5 Rd8 24. h5 Qf6 25. Be2 a6 26. Kd1 b6 27. Rc2 b5 28. axb5 axb5 29. Rc5 Nfe7 30. Bg4 b4 1/2-1/2
@@ -88247,7 +88247,7 @@
 [BlackTitle "BOT"]
 [Variant "Standard"]
 [TimeControl "60+0"]
-[ECO "C54"]
+[ECO "C50"]
 [Termination "Time forfeit"]
 
 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. d3 Bc5 5. O-O d6 6. c3 O-O 7. Re1 Be6 8. Bxe6 fxe6 9. b4 Bb6 10. a4 a6 11. Nbd2 h6 12. Ra2 Ba7 13. h3 Qe8 14. Nf1 Nh5 15. N1h2 Ne7 16. Kh1 Ng6 17. g3 Qc6 18. Qb3 Rf7 19. Qxe6 Nf6 20. Qb3 Rf8 21. Kg2 Kh7 22. c4 Qd7 23. Rb2 c6 24. c5 d5 25. exd5 Nxd5 26. Nxe5 Nxe5 27. Rxe5 Bb8 28. Ree2 Bc7 29. Qc2 Rf5 30. d4 Kh8 31. Rb3 Qf7 32. Kg1 Bb8 33. Ng4 Rh5 34. h4 Rf5 35. Ne3 Rf6 36. Nxd5 cxd5 37. b5 Qh5 38. c6 axb5 39. axb5 bxc6 40. Ba3 Re8 41. Rxe8+ Qxe8 42. Re3 Re6 43. Rf3 Re2 44. Qd3 Qe4 45. Qxe4 dxe4 46. Rf8+ Kh7 47. Rxb8 cxb5 48. d5 e3 49. d6 exf2+ 50. Kf1 Rd2 51. Bb4 1-0
@@ -102806,7 +102806,7 @@
 [BlackTitle "BOT"]
 [Variant "Standard"]
 [TimeControl "60+0"]
-[ECO "A05"]
+[ECO "A07"]
 [Termination "Normal"]
 
 1. Nf3 d5 2. g3 Nf6 3. Bg2 c6 4. O-O Bf5 5. d3 e6 6. Nh4 Bg4 7. h3 Bh5 8. f4 Bc5+ 9. Kh1 Be7 10. g4 Bg6 11. e3 Nfd7 12. Nf3 a5 13. Nc3 Nc5 14. Bd2 Nbd7 15. Qe1 f6 16. Rd1 O-O 17. Qg3 Bf7 18. Nd4 Bd6 19. h4 g6 20. h5 g5 21. Qh3 h6 22. a3 Kh8 23. Nce2 Bg8 24. e4 dxe4 25. dxe4 e5 26. Nf5 Bc7 27. fxe5 Bxe5 28. b3 Kh7 29. Bc3 Qc7 30. Ne7 Bf7 31. Qf3 Be6 32. Ng6 Rf7 33. Nd4 Bxd4 34. Bxd4 Ne5 35. Qg3 Ncd7 36. Bb2 a4 37. bxa4 Kg8 38. Rd2 Qa5 39. Bc3 Qc5 40. Bd4 Qa5 41. Bc3 Qc5 42. a5 Re8 43. Re1 Nxg4 44. Bb4 1/2-1/2
@@ -106837,7 +106837,7 @@
 [BlackTitle "BOT"]
 [Variant "Standard"]
 [TimeControl "60+0"]
-[ECO "A15"]
+[ECO "A11"]
 [Termination "Normal"]
 
 1. c4 Nf6 2. Nf3 c6 3. g3 d5 4. Bg2 dxc4 5. O-O Nbd7 6. Na3 Nb6 7. Qc2 Be6 8. Ne5 Qd4 9. Nxc6 bxc6 10. Bxc6+ Kd8 11. Nb5 Qc5 12. Bxa8 Nxa8 13. a4 Qd5 14. Re1 Bd7 15. Nc3 Qf5 16. Qxf5 Bxf5 17. d3 Kc8 18. Be3 cxd3 19. Bxa7 dxe2 20. Rxe2 e6 21. a5 Nc7 22. a6 Bd3 23. Rd2 Bxa6 24. Bb6 Nfe8 25. Rad1 Bd6 26. Ba5 Nb5 27. Nxb5 Bxb5 28. Rxd6 Nxd6 29. Rxd6 Re8 30. Kg2 Re7 31. Kf3 Ra7 32. Rd8+ Kb7 33. Bd2 Bc6+ 34. Ke3 f6 35. Bb4 Kb6 36. Rb8+ Kc7 37. Rg8 Kb6 38. Bf8 g5 39. Bg7 Rf7 40. Bh6 Kc5 41. Rg7 Rxg7 42. Bxg7 f5 43. f3 h5 44. h3 Kb4 45. Bf6 Kb3 46. Bxg5 Kxb2 47. Bf6+ Kc2 48. g4 fxg4 49. fxg4 hxg4 1/2-1/2
@@ -112923,7 +112923,7 @@
 [BlackTitle "BOT"]
 [Variant "Standard"]
 [TimeControl "60+0"]
-[ECO "A05"]
+[ECO "A11"]
 [Termination "Normal"]
 
 1. Nf3 Nf6 2. g3 d5 3. Bg2 c6 4. c4 g6 5. b3 a5 6. Bb2 Bg7 7. O-O O-O 8. d3 Re8 9. Qc2 Nbd7 10. cxd5 cxd5 11. e4 e5 12. Nc3 d4 13. Nb5 Ra6 14. Nd2 Bf8 15. f4 Ng4 16. Nc4 a4 17. bxa4 Rc6 18. Qd2 Rxc4 19. dxc4 Bc5 20. Ba3 Bxa3 21. Nxa3 exf4 22. Rxf4 d3 23. h3 Nge5 24. a5 Nc5 25. Nb5 Be6 26. Qb4 Qg5 27. Raf1 Bxh3 28. Bxh3 Qxg3+ 29. Bg2 Qe3+ 30. R1f2 Qc1+ 1/2-1/2

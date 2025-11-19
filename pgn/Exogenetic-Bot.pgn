@@ -9660,7 +9660,7 @@
 [BlackTitle "BOT"]
 [Variant "Standard"]
 [TimeControl "60+1"]
-[ECO "C19"]
+[ECO "C18"]
 [Termination "Normal"]
 
 1. e4 e6 2. d4 d5 3. Nc3 Bb4 4. e5 c5 5. a3 Bxc3+ 6. bxc3 Ne7 7. Qg4 O-O 8. Bd3 c4 9. Bh6 Ng6 10. Bxg6 fxg6 11. Be3 Qe8 12. h4 h6 13. h5 Kh7 14. Ne2 b6 15. hxg6+ Qxg6 16. Qh4 Bd7 17. Rh3 Nc6 18. Kd2 Qe4 19. Bf4 Rxf4 20. Qxf4 Qxf4+ 21. Nxf4 Rf8 22. Ke3 Nd8 23. Ne2 Ba4 24. Rc1 Kg8 25. g4 Nc6 26. Nf4 Re8 27. Rh2 Kf7 28. Nh5 Ne7 29. f4 Bd7 30. Ng3 Rh8 31. Rf1 g6 32. Rfh1 Kg7 33. a4 Rh7 34. a5 b5 35. a6 Rh8 36. Kd2 Rh7 37. Rb1 Kf7 38. f5 exf5 39. gxf5 Nxf5 40. Nxf5 gxf5 41. Rbh1 Kg7 42. Rg1+ Kh8 43. Rhg2 Re7 44. Rg8+ Kh7 45. Rb8 Be6 46. Rb7 1-0
