@@ -1,3 +1,93 @@
+[Event "5th bot battle Team Battle"]
+[Site "https://lichess.org/NRqdeW6B"]
+[Date "2025.11.23"]
+[White "ToromBot"]
+[Black "Groot123456"]
+[Result "1-0"]
+[GameId "NRqdeW6B"]
+[UTCDate "2025.11.23"]
+[UTCTime "22:27:18"]
+[WhiteElo "2934"]
+[BlackElo "1330"]
+[WhiteRatingDiff "+0"]
+[BlackRatingDiff "+0"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "A13"]
+[Termination "Normal"]
+
+1. c4 e6 2. Nf3 h5 3. d4 Nc6 4. d5 Na5 5. e4 Qe7 6. Nc3 c5 7. e5 Qd8 8. d6 Rh7 9. Nb5 Nc6 10. Bd3 a6 11. Nc7+ Qxc7 12. dxc7 f5 13. exf6 Nxf6 14. Bg6+ Ke7 15. Bf4 d5 16. Bxh7 Na5 17. cxd5 exd5 18. Qe2+ Be6 19. Ng5 Ne4 20. Bxe4 Bg4 21. Bf3+ Kd7 22. Bxg4+ Kc6 23. Qe6+ Bd6 24. Qxd6+ Kb5 25. a4+ Kb4 26. Qb6+ Kc4 27. Be2+ Kd4 28. Rd1# 1-0
+
+
+[Event "5th bot battle Team Battle"]
+[Site "https://lichess.org/BT3Zsopt"]
+[Date "2025.11.23"]
+[White "Moment-That-Inspires"]
+[Black "ToromBot"]
+[Result "1/2-1/2"]
+[GameId "BT3Zsopt"]
+[UTCDate "2025.11.23"]
+[UTCTime "22:17:02"]
+[WhiteElo "2983"]
+[BlackElo "2933"]
+[WhiteRatingDiff "-1"]
+[BlackRatingDiff "+1"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "B06"]
+[Termination "Normal"]
+
+1. d4 g6 2. e4 Bg7 3. Nf3 d6 4. Nc3 a6 5. Be3 Nf6 6. Qd2 O-O 7. Bh6 c5 8. Bxg7 Kxg7 9. O-O-O Nc6 10. dxc5 dxc5 11. Qf4 Qa5 12. e5 Ng4 13. Bc4 Bf5 14. Rhe1 Rac8 15. Nh4 Nh6 16. Nxf5+ Nxf5 17. Bd5 Rcd8 18. Bxc6 bxc6 19. Qa4 Qb6 20. Qb3 Rxd1+ 21. Nxd1 Qb5 22. Nc3 Nd4 23. Qa4 Qb6 24. Rd1 Qc7 25. Re1 Qb6 26. Qc4 Qb4 27. Qxb4 cxb4 28. Na4 Ne6 29. Re4 Rb8 30. f4 Rb5 31. c3 a5 32. Kc2 h5 33. g3 Kf8 34. Rc4 c5 35. a3 Ke8 36. axb4 axb4 37. cxb4 cxb4 38. Kb3 g5 39. f5 Ng7 40. Rc8+ Kd7 41. Rc5 Rb8 42. Rd5+ Kc6 43. Rc5+ Kd7 44. f6 exf6 45. exf6 Ne6 46. Rd5+ Kc6 47. Kc4 Re8 48. Nc5 Nc7 49. Rxg5 Re2 50. Nd3 Rxh2 51. Rg7 Kd6 52. Rxf7 Nd5 53. Rf8 Nb6+ 54. Kxb4 Nd7 55. Rd8 Kc7 56. Rg8 Nxf6 57. Rg7+ Kd8 58. Kc5 h4 59. gxh4 Rxh4 60. Rg6 Ne4+ 61. Kc6 Nd2 62. Ne5 Nb3 63. Rg8+ Ke7 64. Ng6+ Kf7 65. Nxh4 Kxg8 66. Kd6 Kh8 67. Kd5 Kg8 68. Kc4 Na5+ 69. Kb5 Nb7 70. b4 Nd8 71. Kc5 Ne6+ 72. Kd5 1/2-1/2
+
+
+[Event "5th bot battle Team Battle"]
+[Site "https://lichess.org/RqXZRXyu"]
+[Date "2025.11.23"]
+[White "BorkaTower"]
+[Black "ToromBot"]
+[Result "1/2-1/2"]
+[GameId "RqXZRXyu"]
+[UTCDate "2025.11.23"]
+[UTCTime "22:05:30"]
+[WhiteElo "2839"]
+[BlackElo "2933"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "E94"]
+[Termination "Normal"]
+
+1. d4 g6 2. e4 Bg7 3. c4 c6 4. Nc3 d6 5. Be2 Nf6 6. Nf3 O-O 7. O-O e5 8. d5 a5 9. h3 Na6 10. Be3 Bd7 11. Rb1 Ne8 12. a3 cxd5 13. cxd5 f5 14. Qb3 Rc8 15. a4 Nc5 16. Qa3 fxe4 17. Nd2 Bf5 18. g4 Qh4 19. gxf5 gxf5 20. Kh2 Bh6 21. Rg1+ Kh8 22. Nb5 Bxe3 23. fxe3 Nf6 24. Rbf1 Qh6 25. Nc4 Ng4+ 26. Kg2 Nd3 27. hxg4 Rxc4 28. Qxd6 Rf6 29. Qb8+ Rf8 30. Qd6 Rf6 31. Qb8+ Rf8 32. Nd6 Rxb8 33. Nf7+ Kg7 34. Nxh6 Kxh6 35. Kg3 f4+ 36. exf4 Rc2 37. Bxd3 exf4+ 38. Kxf4 exd3 39. Rd1 Rc4+ 40. Ke3 Rxa4 41. d6 Rd8 42. Rxd3 Rd7 43. Rc1 Rxg4 44. Rc7 Rd8 45. Kf3 Rh4 46. d7 Rh3+ 47. Ke4 Rxd3 48. Kxd3 1/2-1/2
+
+
+[Event "5th bot battle Team Battle"]
+[Site "https://lichess.org/2ScHd5hy"]
+[Date "2025.11.23"]
+[White "ToromBot"]
+[Black "Groot123456"]
+[Result "1-0"]
+[GameId "2ScHd5hy"]
+[UTCDate "2025.11.23"]
+[UTCTime "21:55:43"]
+[WhiteElo "2933"]
+[BlackElo "1330"]
+[WhiteRatingDiff "+0"]
+[BlackRatingDiff "+0"]
+[WhiteTitle "BOT"]
+[BlackTitle "BOT"]
+[Variant "Standard"]
+[TimeControl "300+0"]
+[ECO "A25"]
+[Termination "Normal"]
+
+1. c4 e5 2. Nc3 Nc6 3. g3 Nf6 4. Bg2 d6 5. Nf3 Nd4 6. Nxd4 exd4 7. Nd5 Nd7 8. b4 c5 9. d3 Rb8 10. Qa4 b6 11. bxc5 h5 12. c6 a6 13. c7 Bb7 14. cxd8=Q+ Kxd8 15. h4 Nf6 16. Nxf6 b5 17. Qa5+ Ke7 18. Bg5 gxf6 19. Qc7+ Ke6 20. Bh3+ f5 21. Bxf5+ Ke5 22. Qxf7 bxc4 23. f4# 1-0
+
+
 [Event "3th bot battle Team Battle"]
 [Site "https://lichess.org/DfhgGWMr"]
 [Date "2025.11.21"]
@@ -114789,95 +114879,5 @@
 [Termination "Normal"]
 
 1. e4 d6 2. d4 Nf6 3. Nc3 e5 4. Nf3 Nbd7 5. h3 c6 6. Be3 b5 7. a3 Qc7 8. g4 h6 9. g5 hxg5 10. Nxg5 Rb8 11. Rg1 Be7 12. Qd2 a5 13. dxe5 dxe5 14. f4 exf4 15. Bxf4 Ne5 16. O-O-O b4 17. axb4 axb4 18. Na4 Ra8 19. b3 Nfd7 20. Kb1 Rxa4 21. bxa4 Qa5 22. Rg3 Qxa4 23. Qe3 Bf6 24. Qb3 Nc5 25. Qxa4 Nxa4 26. Bxe5 Bxe5 27. Rd8+ Kxd8 28. Nxf7+ Kc7 29. Nxe5 Kb6 30. Bg2 Nc3+ 31. Kb2 Nd1+ 32. Kc1 Nc3 33. Kb2 Rh5 34. Nd3 Rh4 35. Nxb4 Nxe4 36. Rxg7 Bxh3 37. Bxh3 Rxh3 38. Nd3 Rg3 39. Rh7 Rxd3 40. cxd3 Nf6 41. Rh6 Nd5 42. Kb3 Kc5 43. Kc2 Ne7 44. Kc3 Nd5+ 45. Kd2 Ne7 46. Rh4 Nd5 47. Rh1 Ne7 48. Ke3 Nd5+ 49. Ke4 Nf6+ 50. Kf5 Nd7 51. Rh6 Kd5 52. Rh8 Kd6 53. Rh6+ Kd5 54. Rh8 Kd6 55. Ke4 Nc5+ 56. Ke3 Ne6 57. Rh6 Ke5 58. Rh5+ Kd6 59. Rh7 Nc5 60. Rh4 Kd5 61. Rd4+ Ke6 62. Rh4 Kd6 63. Rh6+ Kd5 64. Rh5+ Kd6 65. Rh6+ Kd5 66. Rh5+ Kd6 67. Kd4 Ne6+ 68. Ke4 1/2-1/2
-
-
-[Event "rated Racing Kings game"]
-[Site "https://lichess.org/RD158F27"]
-[Date "2025.09.21"]
-[White "ToromBot"]
-[Black "Speeedrunchessgames"]
-[Result "1/2-1/2"]
-[GameId "RD158F27"]
-[UTCDate "2025.09.21"]
-[UTCTime "21:23:34"]
-[WhiteElo "2494"]
-[BlackElo "2502"]
-[WhiteRatingDiff "+0"]
-[BlackRatingDiff "+0"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Racing Kings"]
-[TimeControl "60+0"]
-[ECO "?"]
-[Termination "Normal"]
-
-1. Kg3 Kb3 2. Nxc2 Rxc2 3. Kf4 Nxf2 4. Rxf2 Kc4 5. Kg5 Kb5 6. Kh6 Rc7 7. Rg6 Bb2 8. Bg2 Be5 9. Rf8 Kc5 10. Nf4 Nc4 11. Bd5 Nd6 12. Rgg8 Rg1 13. Ng6 Kb6 14. Bf7 Ka7 15. Kh7 Rxg6 16. Rxg6 Rc8 17. Rxc8 Nxc8 18. Kg8 Kb8 1/2-1/2
-
-
-[Event "rated Racing Kings game"]
-[Site "https://lichess.org/rpxVVFlL"]
-[Date "2025.09.21"]
-[White "ToromBot"]
-[Black "TacticalBot"]
-[Result "1/2-1/2"]
-[GameId "rpxVVFlL"]
-[UTCDate "2025.09.21"]
-[UTCTime "21:23:04"]
-[WhiteElo "2494"]
-[BlackElo "2494"]
-[WhiteRatingDiff "+0"]
-[BlackRatingDiff "+0"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Racing Kings"]
-[TimeControl "60+0"]
-[ECO "?"]
-[Termination "Normal"]
-
-1. Bd4 Be4 2. Kg3 Kb3 3. Kf4 Kc4 4. Ke5 Qa6 5. Bxb2 Rxb2 6. Qh8 Rb7 7. Rg7 Kb5 8. Bh3 Qc6 9. Bd7 Ba3 10. Nf3 Bxf3 11. R1g6 Qxd7 12. Kf6 Kb6 13. Rxd7 Rxd7 14. Rg7 Ka7 15. Rf7 Bd6 16. Kg7 Bb8 17. Kg8 Ka8 1/2-1/2
-
-
-[Event "rated bullet game"]
-[Site "https://lichess.org/izyH7YUc"]
-[Date "2025.09.21"]
-[White "ToromBot"]
-[Black "Speeedrunchessgames"]
-[Result "1/2-1/2"]
-[GameId "izyH7YUc"]
-[UTCDate "2025.09.21"]
-[UTCTime "21:20:52"]
-[WhiteElo "3104"]
-[BlackElo "3111"]
-[WhiteRatingDiff "+1"]
-[BlackRatingDiff "+0"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "30+0"]
-[ECO "D24"]
-[Termination "Normal"]
-
-1. c4 Nf6 2. Nf3 e6 3. Nc3 d5 4. d4 dxc4 5. e4 Bb4 6. Bxc4 Nxe4 7. O-O Nf6 8. Qb3 Bd6 9. Bg5 O-O 10. Qc2 Nc6 11. Rad1 h6 12. Bh4 Ne7 13. Bxf6 gxf6 14. Rfe1 Kg7 15. d5 e5 16. Bd3 Rg8 17. Nh4 Kh8 18. g3 Qf8 19. Kh1 Qg7 20. Nb5 Bd7 21. Nxd6 cxd6 22. Qc7 Rgd8 23. Qxb7 a5 24. f4 f5 25. fxe5 dxe5 26. Bb5 Rab8 27. Qc7 Bxb5 28. Qxe7 Bd7 29. Rf1 f6 30. d6 Re8 31. Qxg7+ Kxg7 32. Nxf5+ Bxf5 33. Rxf5 Rxb2 34. d7 Rd8 35. Rd6 Rxa2 1/2-1/2
-
-
-[Event "rated bullet game"]
-[Site "https://lichess.org/FYcmbozo"]
-[Date "2025.09.21"]
-[White "ToromBot"]
-[Black "Mate-AI"]
-[Result "1/2-1/2"]
-[GameId "FYcmbozo"]
-[UTCDate "2025.09.21"]
-[UTCTime "21:17:17"]
-[WhiteElo "3104"]
-[BlackElo "2915"]
-[WhiteTitle "BOT"]
-[BlackTitle "BOT"]
-[Variant "Standard"]
-[TimeControl "60+1"]
-[ECO "D02"]
-[Termination "Normal"]
-
-1. d4 Nf6 2. Nf3 d5 3. Bf4 c5 4. Nc3 Nc6 5. a3 e6 6. e3 a6 7. h3 b5 8. dxc5 Bxc5 9. Bd3 O-O 10. O-O Bb7 11. e4 d4 12. Nb1 e5 13. Nxe5 Nxe5 14. Bxe5 Nxe4 15. Re1 f5 16. Nd2 Qh4 17. Qe2 Ng5 18. Bg3 Nxh3+ 19. Kf1 Qh6 20. Qe6+ Qxe6 21. Rxe6 Ng5 22. Ree1 Rac8 23. Nb3 Ne4 24. Be5 Bd5 25. Nxc5 Nxc5 26. Bxd4 Nxd3 27. cxd3 Rfe8 28. Rxe8+ Rxe8 29. Rc1 Re7 30. Rc8+ Kf7 31. Bc5 Rd7 32. Rh8 Kg6 33. f3 f4 34. Rf8 Kg5 35. Bb4 Be6 36. Bd2 Bf5 37. g4 Bxd3+ 38. Kf2 Rd4 39. Bc3 Rd7 40. Be5 h5 1/2-1/2
 
 
